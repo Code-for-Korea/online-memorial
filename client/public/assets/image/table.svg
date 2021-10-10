@@ -1,0 +1,21 @@
+<svg width="277" height="92" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
+            <stop stop-color="#FFF" stop-opacity=".538" offset="0%"/>
+            <stop stop-color="#D8D8D8" stop-opacity=".868" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b">
+            <stop stop-color="#FFF" stop-opacity="0" offset="0%"/>
+            <stop stop-color="#FFF" stop-opacity=".421" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="100%" id="c">
+            <stop stop-color="#FFF" stop-opacity=".169" offset="0%"/>
+            <stop stop-color="#FFF" offset="100%"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path d="M62.61 0h152.676a1 1 0 0 1 .495.13l57.932 32.943a1 1 0 0 1-.495 1.87H3.83a1 1 0 0 1-.49-1.873L62.123.128A1 1 0 0 1 62.61 0z" fill="url(#a)"/>
+        <path d="M1 34.5h275a1 1 0 0 1 1 1V91a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V35.5a1 1 0 0 1 1-1z" fill="url(#b)" transform="matrix(1 0 0 -1 0 126.5)"/>
+        <path stroke="url(#c)" d="M0 35.143h277"/>
+    </g>
+</svg>
