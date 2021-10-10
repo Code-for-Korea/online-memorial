@@ -1,0 +1,36 @@
+.memorial-animation--wrapper {
+    width: 100%;
+    height: 50%;
+    position: relative;
+}
+
+.memorial-animation--table {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.memorial-animation--candle {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.memorial-animation--candle__light {
+    position: absolute;
+}
+
+.memorial-animation--flower__left {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.memorial-animation--flower__right {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    transform: scaleX(-1) translateY(-50%);
+}

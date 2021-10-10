@@ -1,0 +1,11 @@
+.layout {
+    width: 40%;
+    margin: 0 30%;
+}
+
+@media (max-width: 789px) {
+    .layout {
+        width: 100vw;
+        margin: 0;
+    }
+}
