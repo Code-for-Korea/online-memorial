@@ -1,8 +1,11 @@
 import React, { useCallback, useState } from "react";
 import FlexColumn from "../../components/common/FlexColumn";
+import FlexRow from "../../components/common/FlexRow";
 import TabBody from "../../components/common/Tab/TabBody";
 import TabHeader from "../../components/common/Tab/TabHeader";
 import TabWrapper, { TabData } from "../../components/common/Tab/TabWrapper";
+import TextChunk from "../../components/common/TextChunk";
+import Pagination from "../../components/pagination/Pagination";
 import PostList from "../../components/post/PostList";
 import styles from "./style.module.css";
 
@@ -25,6 +28,14 @@ const MemorialPosts:React.FC<MemorialPostsProps> = ({  }) => {
             visible: false
         },
     ]);
+
+    const updatePostPageNum = useCallback((newPageNum) => {
+        setPostPageNum(newPageNum);
+    }, []);
+
+    const getLastPostPageNum = useCallback(() => {
+        return 5;
+    }, [])
 
     const findTabById = useCallback((id:TabData["id"]) => {
         return tabList.find((tabData) => tabData.id === id);
@@ -54,6 +65,10 @@ const MemorialPosts:React.FC<MemorialPostsProps> = ({  }) => {
             <TabHeader tabList={tabList} onClickTab={onClickTab}/>
             <TabWrapper>
                 <TabBody visible={findTabByName("추모공간")?.visible??false}>
+                    <FlexColumn style={styles["pagination--wrapper"]}>
+                        <TextChunk content={`230명이\n추모하셨습니다`} style={styles["pagination--text"]}/>
+                        <Pagination onPageChange={updatePostPageNum} lastPage={getLastPostPageNum()}/>
+                    </FlexColumn>
                     <PostList pageNum={postPageNum} />
                 </TabBody>
                 <TabBody visible={findTabByName("추모관")?.visible??false}>

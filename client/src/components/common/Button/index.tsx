@@ -5,14 +5,15 @@ type ButtonProps = {
     text: string;
     onClick: (evt:React.MouseEvent<HTMLButtonElement>) => void;
     style?: string;
+    children?: React.ReactNode;
 }
 
-const Button:React.FC<ButtonProps> = ({ text, onClick, style }) => {
+const Button:React.FC<ButtonProps> = ({ text, onClick, style, children }) => {
 
     return (
         <button onClick={onClick} className={`${styles.button} ${style??""}`}>
             {
-                text
+                children ? children : text
             }
         </button>
     )

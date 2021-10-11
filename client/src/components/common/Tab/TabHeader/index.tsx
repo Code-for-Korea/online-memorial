@@ -16,7 +16,7 @@ const TabHeader:React.FC<TabHeaderProps> = ({ tabList, onClickTab }) => {
             {
                 tabList.map((tabData) => {
                     return (
-                        <div onClick={onClickTab(tabData.id)} className={`${styles["tab--header__default"]} ${tabData.visible ? `${styles["tab--header__show"]}` : ""}`}>
+                        <div key={`tab-${tabData.id}`} onClick={onClickTab(tabData.id)} className={`${styles["tab--header__default"]} ${tabData.visible ? `${styles["tab--header__show"]}` : ""}`}>
                             {
                                 tabData.name
                             }

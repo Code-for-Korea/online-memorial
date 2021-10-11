@@ -2,3 +2,15 @@
     height: 100%;
     min-height: 50%;
 }
+
+.pagination--wrapper {
+    height: 20rem;
+    padding: 5rem 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination--text {
+    width: 10rem;
+    font-size: 1.5rem;
+}
