@@ -55,10 +55,10 @@ const MemorialTable:React.FC = () => {
                 staticValues.map((value, idx) => {
                     return <HazyLight 
                                 key={`random-generated-hazy-light-${idx}`}
-                                styleWithPosition={styles["memorial-animation--candle__light"]} 
-                                top={value.y} 
-                                left={value.x} 
-                                scale={value.scale} 
+                                styleWithPosition={styles["memorial-animation--snowflake"]} 
+                                top={Number(value.y.toFixed(0))} 
+                                left={Number(value.x.toFixed(0))} 
+                                scale={Number(value.scale.toFixed(2))} 
                             />        
                 })
             }
