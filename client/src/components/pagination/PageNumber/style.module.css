@@ -1,11 +1,17 @@
 
 .pagination-page-number__wrapper {
-    flex: 2;
+    flex: 4;
+    max-width: 70%;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .pagination--page-number__default {
-    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5em;
     color: white;
     opacity: 0.2;
     padding: 0 0.5em;

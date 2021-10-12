@@ -16,12 +16,24 @@ const PageNumber:React.FC<PageNumberProps> = ({ centerNumber, oddNumberForDispla
     }, []);
 
     const gap = Math.floor(oddNumberForDisplayCount / 2);
-    console.log("gap", gap);
-    const start = centerNumber - gap;
-    const end = centerNumber === 1 ? centerNumber + gap + 2 : centerNumber + gap + 1 ;
-    const numbersToDisplay = getNumArrayOfRange(start, end).filter((num) => num >= 1 && num <= lastNumber).sort();
+    let end = centerNumber <= gap ? centerNumber + gap * 2 + 1: centerNumber + gap * 2 - (gap - 1);
 
-    console.log(getNumArrayOfRange(centerNumber - gap, centerNumber + gap).filter((num) => num >= 1 && num <= lastNumber).sort());
+    if ((centerNumber <= gap || gap > lastNumber - centerNumber) && oddNumberForDisplayCount > centerNumber) {
+        end = lastNumber < oddNumberForDisplayCount ? lastNumber : oddNumberForDisplayCount;
+        end++;
+    }
+
+    let start = centerNumber <= gap ? 1 : centerNumber - gap ;
+
+    if (end > lastNumber) {
+        start = start - (gap - (lastNumber - centerNumber));
+    }
+
+    const numbersToDisplay = getNumArrayOfRange(start, end).filter((num) => num >= 1 && num <= lastNumber).sort((a, b) => a - b);
+
+    console.log(start, end);
+    
+    console.log(numbersToDisplay);
 
     return (
         <FlexRow style={styles["pagination-page-number__wrapper"]}>
@@ -29,10 +41,10 @@ const PageNumber:React.FC<PageNumberProps> = ({ centerNumber, oddNumberForDispla
                 numbersToDisplay[0] !== 1 && <TextChunk content="..." style={`${styles["pagination--page-number__default"]}`}/>
             } */}
             {
-                numbersToDisplay.map((num) => {
+                numbersToDisplay.map((num, idx) => {
                     return <TextChunk 
-                                key={`page-num-${num}`}
-                                content={String(num)} 
+                                key={`page-num-${num}-${idx}`}
+                                content={num !== 0 ? String(num) : " "} 
                                 style={`${styles["pagination--page-number__default"]} ${num === centerNumber ? styles["pagination--page-number__selected"] : ""}`}
                             />
                 })

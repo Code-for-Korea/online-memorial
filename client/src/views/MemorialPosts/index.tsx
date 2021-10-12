@@ -34,7 +34,7 @@ const MemorialPosts:React.FC<MemorialPostsProps> = ({  }) => {
     }, []);
 
     const getLastPostPageNum = useCallback(() => {
-        return 5;
+        return 25;
     }, [])
 
     const findTabById = useCallback((id:TabData["id"]) => {
@@ -65,9 +65,9 @@ const MemorialPosts:React.FC<MemorialPostsProps> = ({  }) => {
             <TabHeader tabList={tabList} onClickTab={onClickTab}/>
             <TabWrapper>
                 <TabBody visible={findTabByName("추모공간")?.visible??false}>
-                    <FlexColumn style={styles["pagination--wrapper"]}>
+                    <FlexColumn style={styles["pagination"]}>
                         <TextChunk content={`230명이\n추모하셨습니다`} style={styles["pagination--text"]}/>
-                        <Pagination onPageChange={updatePostPageNum} lastPage={getLastPostPageNum()}/>
+                        <Pagination onPageChange={updatePostPageNum} lastPage={getLastPostPageNum()} initialPageNum={postPageNum}/>
                     </FlexColumn>
                     <PostList pageNum={postPageNum} />
                 </TabBody>

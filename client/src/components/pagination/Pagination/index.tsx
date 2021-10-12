@@ -7,11 +7,12 @@ import styles from "./style.module.css";
 type PaginationProps = {
     onPageChange: (page:number) => void;
     lastPage: number;
+    initialPageNum?: number;
 }
 
-const Pagination:React.FC<PaginationProps> = ({ onPageChange, lastPage }) => {
+const Pagination:React.FC<PaginationProps> = ({ onPageChange, lastPage, initialPageNum }) => {
 
-    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [currentPage, setCurrentPage] = useState<number>(initialPageNum??1);
 
     const onMoveButtonClick = useCallback((numberToAdd:number) => (evt: React.MouseEvent<HTMLButtonElement>) => {
         const newPageNum = currentPage + numberToAdd;
@@ -25,7 +26,7 @@ const Pagination:React.FC<PaginationProps> = ({ onPageChange, lastPage }) => {
     }, [currentPage]);
 
     return (
-        <FlexRow style={styles["pagination--wrapper"]}>
+        <FlexRow style={styles["pagination--container__wrapper"]}>
             <Button text="<" onClick={onMoveButtonClick(-1)} style={styles["pagination--button"]}/>
             <PageNumber centerNumber={currentPage} oddNumberForDisplayCount={3} lastNumber={lastPage}/>
             <Button text=">" onClick={onMoveButtonClick(1)} style={styles["pagination--button"]}/>

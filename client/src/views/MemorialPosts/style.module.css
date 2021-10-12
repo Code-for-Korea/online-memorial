@@ -3,9 +3,11 @@
     min-height: 50%;
 }
 
-.pagination--wrapper {
+.pagination {
+    flex: 1;
     height: 20em;
-    padding: 5em 2em;
+    padding: 5em 1em;
+    display: flex;
     justify-content: center;
     align-items: center;
 }

@@ -1,6 +1,10 @@
-.pagination--wrapper {
-    max-width: 19em;
+.pagination--container__wrapper {
+    /* min-width: 12em; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 .pagination--button {
