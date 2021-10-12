@@ -3,7 +3,7 @@
     margin: 0 30%;
 }
 
-@media (max-width: 789px) {
+@media (max-width: 900px) {
     .layout {
         width: 100vw;
         margin: 0;

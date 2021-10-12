@@ -41,10 +41,3 @@
         opacity: 1;
     }
 }
-
-@media (max-width: 789px) {
-    .memorial-animation--text {
-        font-size: 1.5rem;
-        padding: 0;
-    }
-}
