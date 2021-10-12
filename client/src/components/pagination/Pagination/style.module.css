@@ -1,13 +1,13 @@
 .pagination--wrapper {
-    max-width: 19rem;
+    max-width: 19em;
+    align-items: center;
 }
 
 .pagination--button {
-    flex: 1;
     color: white;
-    height: 3.5rem;
+    width: 3.5em;
+    height: 3.5em;
     padding: 0;
-    margin: 1rem;
     border-radius: 50%;
     z-index: 3;
 }

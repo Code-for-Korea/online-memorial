@@ -4,13 +4,14 @@
 }
 
 .pagination--wrapper {
-    height: 20rem;
-    padding: 5rem 2rem;
+    height: 20em;
+    padding: 5em 2em;
     justify-content: center;
     align-items: center;
 }
 
 .pagination--text {
-    width: 10rem;
+    width: 10em;
     font-size: 1.5rem;
+    text-align: center;
 }

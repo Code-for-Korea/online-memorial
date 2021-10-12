@@ -1,14 +1,15 @@
-.post--wrapper {
+.post--paper__wrapper {
+    height: fit-content;
     position: relative;
     justify-content: center;
     align-items: center;
-    margin-top: 4rem;
+    margin-top: 4em;
 }
 
-.post--background {
-    width: 27rem;
-    height: 16rem;
-    padding: 3rem 2rem;
+.post--paper__background {
+    width: 27em;
+    height: fit-content;
+    padding: 3em 2em;
     background-color: rgba(255, 255, 255, 0.08);
     display: flex;
     flex-direction: row;
@@ -16,7 +17,7 @@
     align-items: center;
 }
 
-.post--sticker {
+.post--paper__sticker {
     position: absolute;
     top: 0;
     transform: translateY(-50%);

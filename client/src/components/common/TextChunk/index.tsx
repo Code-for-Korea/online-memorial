@@ -12,11 +12,21 @@ const TextChunk:React.FC<TextChunkProps> = ({ isParagraph = false, content, char
 
     const textContent = charLimit ? `${content.slice(0, charLimit)}...` : content;
 
+
     if (isParagraph) {
         return (
             <p className={`${styles.text} ${style??""}`}>
                 {
-                    textContent
+                    textContent.split("\n").map((line, idx) => {
+                        return (
+                            <React.Fragment key={`${line.slice(5)}-${idx}`}>
+                                {
+                                    line
+                                }
+                                <br/>
+                            </React.Fragment>
+                        )
+                    })
                 }
             </p>
         )
@@ -25,7 +35,16 @@ const TextChunk:React.FC<TextChunkProps> = ({ isParagraph = false, content, char
     return (
         <span className={`${styles.text} ${style??""}`}>
             {
-                textContent
+                textContent.split("\n").map((line, idx) => {
+                    return (
+                        <React.Fragment key={`${line.slice(5)}-${idx}`}>
+                            {
+                                line
+                            }
+                            <br/>
+                        </React.Fragment>
+                    )
+                })
             }
         </span>
     )

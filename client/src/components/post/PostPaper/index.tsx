@@ -9,13 +9,13 @@ type PostPaperProps = {
 const PostPaper:React.FC<PostPaperProps> = ({ children }) => {
 
     return (
-        <FlexRow style={styles["post--wrapper"]}>
+        <FlexRow style={styles["post--paper__wrapper"]}>
             <img 
-                className={styles["post--sticker"]}
+                className={styles["post--paper__sticker"]}
                 src={`${process.env.PUBLIC_URL}/assets/image/sticker.svg`} 
                 alt="post-sticker"
             />
-            <div className={styles["post--background"]}>
+            <div className={styles["post--paper__background"]}>
                 {
                     children
                 }

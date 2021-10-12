@@ -1,11 +1,38 @@
 .layout {
     width: 40%;
-    margin: 0 30%;
+    margin: 0 auto;
 }
 
-@media (max-width: 900px) {
+/* desktop */
+@media screen and (min-width: 769px) {
     .layout {
-        width: 100vw;
-        margin: 0;
+        width: 40%;
     }
 }
+
+/* tablet */
+@media screen and (max-width: 768px) {
+    .layout {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+    .layout {
+        width: 80%;
+    }
+}
+
+/* mobile */
+@media (max-width: 480px) {
+    .layout {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .layout {
+        width: 100%;
+    }
+}
+

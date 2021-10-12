@@ -1,6 +1,6 @@
 .hazy-light {
-    width: 12rem;
-    height: 12rem;
+    width: 12em;
+    height: 12em;
     background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.41), rgba(255, 255, 255, 0) 71%);
     /* position: absolute;
     top: attr(data-top) "%";

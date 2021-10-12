@@ -45,7 +45,7 @@ const PostList:React.FC<PostListProps> = ({ pageNum }) => {
     const postList:PostData[] = getPostList(pageNum);
 
     return (
-        <FlexColumn style={styles["post--list"]}>
+        <FlexColumn style={styles["post--list__wrapper"]}>
             {
                 postList.map((postData) => {
                     return (
