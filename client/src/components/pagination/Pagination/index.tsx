@@ -23,7 +23,7 @@ const Pagination:React.FC<PaginationProps> = ({ onPageChange, lastPage, initialP
         }
         setCurrentPage(newPageNum);
         onPageChange(newPageNum);
-    }, [currentPage]);
+    }, [currentPage, lastPage, onPageChange]);
 
     return (
         <FlexRow style={styles["pagination--container__wrapper"]}>

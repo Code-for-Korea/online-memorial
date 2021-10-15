@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "../../Container";
 import FlexRow from "../../FlexRow";
 import { TabData } from "../TabWrapper";
 import styles from "./style.module.css";

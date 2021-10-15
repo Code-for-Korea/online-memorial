@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import FlexColumn from "../../components/common/FlexColumn";
-import FlexRow from "../../components/common/FlexRow";
 import TabBody from "../../components/common/Tab/TabBody";
 import TabHeader from "../../components/common/Tab/TabHeader";
 import TabWrapper, { TabData } from "../../components/common/Tab/TabWrapper";
@@ -9,11 +8,8 @@ import Pagination from "../../components/pagination/Pagination";
 import PostList from "../../components/post/PostList";
 import styles from "./style.module.css";
 
-type MemorialPostsProps = {
-    
-}
 
-const MemorialPosts:React.FC<MemorialPostsProps> = ({  }) => {
+const MemorialPosts:React.FC = () => {
 
     const [postPageNum, setPostPageNum] = useState<number>(1);
     const [tabList, setTabList] = useState<TabData[]>([
@@ -34,7 +30,7 @@ const MemorialPosts:React.FC<MemorialPostsProps> = ({  }) => {
     }, []);
 
     const getLastPostPageNum = useCallback(() => {
-        return 25;
+        return 4;
     }, [])
 
     const findTabById = useCallback((id:TabData["id"]) => {

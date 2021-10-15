@@ -4,37 +4,39 @@ import AnimatedImage from "../AnimatedImage";
 import HazyLight from "../HazyLight";
 import styles from "./style.module.css";
 
-type Range = {
-    min: number;
-    max: number;
-}
+// --- 랜덤 눈송이 생성시 쓰이는 범위 ---
+// type Range = {
+//     min: number;
+//     max: number;
+// }
 
 const MemorialTable:React.FC = () => {
 
-    const scaleRange = {
-        min: 0.1,
-        max: 0.5
-    };
-    const positionRange = {
-        x: {
-            min: 0,
-            max: 100
-        },
-        y: {
-            min: 0,
-            max: 45
-        }
-    }
+    // --- 랜덤으로 눈송이 위치 생성하기 ---
+    // const scaleRange = {
+    //     min: 0.1,
+    //     max: 0.5
+    // };
+    // const positionRange = {
+    //     x: {
+    //         min: 0,
+    //         max: 100
+    //     },
+    //     y: {
+    //         min: 0,
+    //         max: 45
+    //     }
+    // }
 
-    const getRandomNumberInRange = (range:Range) => Math.random() * (range.max - range.min) + range.min;
+    // const getRandomNumberInRange = (range:Range) => Math.random() * (range.max - range.min) + range.min;
 
-    const randomValues = Array(10).fill(0).map((_, idx) => {
-        return {
-            x: getRandomNumberInRange(positionRange.x),
-            y: getRandomNumberInRange(positionRange.y),
-            scale: getRandomNumberInRange(scaleRange)
-        }
-    });
+    // const randomValues = Array(10).fill(0).map((_, idx) => {
+    //     return {
+    //         x: getRandomNumberInRange(positionRange.x),
+    //         y: getRandomNumberInRange(positionRange.y),
+    //         scale: getRandomNumberInRange(scaleRange)
+    //     }
+    // });
 
     const staticValues = [
         {"x":41.122405800007854,"y":38.44148375963569,"scale":0.315152797628208},

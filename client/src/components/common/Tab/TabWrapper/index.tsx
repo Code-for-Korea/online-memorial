@@ -13,13 +13,6 @@ type TabWrapperProps = {
 
 const TabWrapper:React.FC<TabWrapperProps> = ({ children }) => {
 
-    if (Array.isArray(children)) {
-        children.forEach((child) => {
-            console.log(child);
-        });
-    }
-    
-
     return (
         <Container>
             {
