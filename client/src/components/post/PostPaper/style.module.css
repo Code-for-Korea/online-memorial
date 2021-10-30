@@ -1,4 +1,5 @@
 .post--paper__wrapper {
+    width: 100%;
     height: fit-content;
     position: relative;
     justify-content: center;
@@ -8,6 +9,7 @@
 
 .post--paper__background {
     width: 27em;
+    max-width: 20em;
     height: fit-content;
     padding: 3em 2em;
     background-color: rgba(255, 255, 255, 0.08);

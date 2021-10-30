@@ -3,15 +3,16 @@ import styles from "./style.module.css";
 
 type ButtonProps = {
     text: string;
-    onClick: (evt:React.MouseEvent<HTMLButtonElement>) => void;
+    onClick?: (evt:React.MouseEvent<HTMLButtonElement>) => void;
     style?: string;
     children?: React.ReactNode;
+    type?: "button" | "submit" | "reset" | undefined;
 }
 
-const Button:React.FC<ButtonProps> = ({ text, onClick, style, children }) => {
+const Button:React.FC<ButtonProps> = ({ text, onClick, style, children, type }) => {
 
     return (
-        <button onClick={onClick} className={`${styles.button} ${style??""}`}>
+        <button type={type ? type : "button"} onClick={onClick ? onClick : () => null} className={`${styles.button} ${style??""}`}>
             {
                 children ? children : text
             }

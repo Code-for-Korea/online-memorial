@@ -30,7 +30,7 @@ const MemorialPosts:React.FC = () => {
     }, []);
 
     const getLastPostPageNum = useCallback(() => {
-        return 4;
+        return 14;
     }, [])
 
     const findTabById = useCallback((id:TabData["id"]) => {

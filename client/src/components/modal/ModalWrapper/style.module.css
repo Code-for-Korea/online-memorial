@@ -1,0 +1,23 @@
+.modal--container__wrapper {
+    width: 100%;
+    height: 100%;
+    opacity: 0.95;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal--container__content {
+    width: 75%;
+    height: 100%;
+}
+
+.modal--container__content, .modal--container__content > * {
+    opacity: 1 !important;
+}
