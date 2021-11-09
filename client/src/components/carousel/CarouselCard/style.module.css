@@ -1,0 +1,16 @@
+.carousel--card__wrapper {
+    border-radius: .5em;
+    background-color: #FFFFFF0F;
+    width: 98%;
+    height: fit-content;
+    min-height: 15em;
+    padding: 3em 2em;
+    margin: 2em 1%;
+    height: fit-content;
+    color: white;
+    overflow-y: hidden;
+}
+
+.carousel--card__wrapper > * {
+    touch-action: pan-x;
+}

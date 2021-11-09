@@ -38,3 +38,9 @@
     border-radius: 0.5em;
     caret-color: white;
 }
+
+.add-post-modal--form__textarea-icon {
+    position: absolute;
+    top: 4em;
+    left: 3em;
+}

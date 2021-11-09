@@ -1,0 +1,35 @@
+.carousel--container__outer-wrapper {
+    overflow: hidden;
+    width: 100%;
+    height: fit-content;
+    touch-action: pan-x;
+}
+
+.carousel--container__inner-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    transition: transform 1.5s;
+}
+
+.carousel--navigation-dot__wrapper {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75em;
+}
+
+.carousel--navigation-dot {
+    border-radius: 50%;
+    background-color: #FFFFFF39;
+    width: 1em;
+    height: 1em;
+    padding: 0;
+    border: none;
+}
+
+.selected {
+    background-color: white !important;
+}

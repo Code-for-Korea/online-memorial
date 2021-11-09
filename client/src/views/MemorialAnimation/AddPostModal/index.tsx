@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from "react";
-import Button from "../../common/Button";
-import FlexColumn from "../../common/FlexColumn";
-import TextChunk from "../../common/TextChunk";
-import PostPaper from "../../post/PostPaper";
-import ModalWrapper from "../ModalWrapper";
+import Button from "../../../components/common/Button";
+import FlexColumn from "../../../components/common/FlexColumn";
+import TextChunk from "../../../components/common/TextChunk";
+import PostPaper from "../../../components/post/PostPaper";
+import ModalWrapper from "../../../components/modal/ModalWrapper";
 import styles from "./style.module.css";
 
 type AddPostModalProps = {
@@ -37,6 +37,7 @@ const AddPostModal:React.FC<AddPostModalProps> = ({ onSubmitPost, onCloseModal }
                 <TextChunk content={title} style={styles["add-post-modal--title"]}/>
                 <form onSubmit={onSubmitButtonClick} className={styles["add-post-modal--form"]}>
                     <PostPaper>
+                        <img className={styles["add-post-modal--form__textarea-icon"]} src={process.env.PUBLIC_URL + "/assets/image/write.svg"} alt={title} />
                         <textarea 
                             onChange={onChangePostText} 
                             name="memorial-text" 

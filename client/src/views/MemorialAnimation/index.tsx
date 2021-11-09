@@ -3,7 +3,7 @@ import MemorialTable from "../../components/animation/MemorialTable";
 import Button from "../../components/common/Button";
 import FlexColumn from "../../components/common/FlexColumn";
 import TextChunk from "../../components/common/TextChunk";
-import AddPostModal from "../../components/modal/AddPostModal";
+import AddPostModal from "./AddPostModal";
 import styles from "./style.module.css";
 
 type MemorialAnimationProps = {

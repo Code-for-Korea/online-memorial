@@ -1,0 +1,29 @@
+.memorial-statistic-card {
+    height: 100%;
+}
+
+.memorial-statistic-card--content {
+    width: 100%;
+    height: 20em;
+    max-height: 100%;
+}
+
+.memorial-statistic-card--header {
+    gap: 5%;
+    line-height: 2rem;
+    height: 20%;
+}
+
+.memorial-statistic-card--logo {
+    padding-bottom: 2em;
+    width: 15%;
+}
+
+.memorial-statistic-card--title {
+    font-size: 1.25rem;
+    display: inline-block;
+}
+
+.memorial-statistic-card--subtitle {
+
+}
