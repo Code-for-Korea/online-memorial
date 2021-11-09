@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Code for Korea - online memorial</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.24.2/swagger-ui.css" >
+  <style>
+    html
+    {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+    *,
+    *:before,
+    *:after
+    {
+      box-sizing: inherit;
+    }
+    body {
+      margin:0;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+<div id="swagger-ui"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.24.2/swagger-ui-bundle.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.24.2/swagger-ui-standalone-preset.js"> </script>
+<script>
+window.onload = function() {
+  var spec = {"openapi": "3.0.0", "info": {"title": "online-memorial", "description": "Code for Korea\uc758 \uc911\ub300 \uc0b0\uc5c5\uc7ac\ud574 \ud76c\uc0dd\uc790 \ucd94\ubaa8 \ud504\ub85c\uc81d\ud2b8", "version": "1.0.0"}, "servers": [{"url": "https://example.com"}], "paths": {"/casualty/{victomStatus}": {"get": {"parameters": [{"name": "victomStatus", "in": "path", "required": true, "description": "current victom status to search", "schema": {"type": "string", "enum": ["dead", "injured"], "example": "dead"}}, {"name": "year", "in": "query", "required": true, "description": "specific year to search, 0 when total years", "schema": {"type": "integer", "example": 2021}}], "responses": {"200": {"description": "Success", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Count"}}}}}}}, "/mourners/posts": {"get": {"parameters": [{"name": "year", "in": "query", "required": true, "description": "specific year to search", "schema": {"type": "integer", "example": 2021}}, {"name": "page", "in": "query", "required": true, "description": "specific page to retrieve", "schema": {"type": "integer", "example": 1}}, {"name": "amount", "in": "query", "required": true, "description": "specific amount of posts to retrieve", "schema": {"type": "integer", "example": 1}}], "responses": {"200": {"description": "Success", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Posts"}}}}}}}, "/statistics/percent": {"get": {"parameters": [{"name": "year", "in": "query", "required": true, "description": "specific year to search, 0 when total years", "schema": {"type": "integer"}}, {"name": "by", "in": "query", "required": true, "description": "percentage by 'day'(Monday, Tuesday...) or 'time'(24 hours, gap is 1 hour)", "schema": {"type": "string", "enum": ["day", "time"]}}], "responses": {"200": {"description": "Success", "content": {"application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/ByDay"}, {"$ref": "#/components/schemas/ByTime"}]}}}}}}}, "/news/editor-pick": {"get": {"responses": {"200": {"description": "Success", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/NewsList"}}}}}}}}, "components": {"schemas": {"Count": {"type": "object", "properties": {"count": {"type": "integer", "example": 230}}}, "Post": {"type": "object", "properties": {"id": {"type": "integer", "example": 1}, "content": {"type": "string", "example": "\uc0bc\uac00\uace0\uc778\uc758 \uba85\ubcf5\uc744 \ube55\ub2c8\ub2e4."}}}, "Posts": {"type": "object", "properties": {"currentPage": {"type": "integer", "example": 1, "description": "requested page number"}, "lastPage": {"type": "integer", "example": 13, "description": "last page number"}, "totalPostsCount": {"type": "integer", "example": 13, "description": "total number of posts in entire posts in requested year"}, "posts": {"type": "array", "items": {"$ref": "#/components/schemas/Post"}}}}, "ByTime": {"type": "array", "description": "0 to 24, ordered by hour(length must be 24)", "items": {"type": "integer", "description": "percentage of case on that time period"}, "example": [0, 0, 10, 24, 3, 55, 0, 0]}, "ByDay": {"type": "array", "description": "starts with Monday(length must be 7)", "items": {"type": "integer", "description": "percentage of case on that day"}, "example": [0, 0, 10, 0, 35, 55, 0]}, "News": {"type": "object", "properties": {"url": {"type": "string", "format": "url", "example": "https://example.com/news"}}}, "NewsList": {"type": "array", "items": {"$ref": "#/components/schemas/News"}}}}};
+  // Build a system
+  const ui = SwaggerUIBundle({
+    spec: spec,
+    dom_id: '#swagger-ui',
+    deepLinking: true,
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
+      SwaggerUIBundle.plugins.DownloadUrl
+    ],
+    layout: "StandaloneLayout"
+  })
+  window.ui = ui
+}
+</script>
+</body>
+</html>
