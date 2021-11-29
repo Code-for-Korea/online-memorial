@@ -6,11 +6,10 @@
     min-height: 15em;
     padding: 3em 2em;
     margin: 2em 1%;
-    height: fit-content;
     color: white;
     overflow-y: hidden;
 }
 
 .carousel--card__wrapper > * {
-    touch-action: pan-x;
+    /* touch-action: pan-x; */
 }

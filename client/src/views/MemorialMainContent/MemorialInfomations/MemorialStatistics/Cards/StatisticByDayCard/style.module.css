@@ -1,3 +1,5 @@
 .statistic-by-day--container__wrapper {
     padding: 5%;
+    justify-content: center;
+    align-items: center;
 }

@@ -3,9 +3,6 @@ import FlexColumn from "../../components/common/FlexColumn";
 import TabBody from "../../components/common/Tab/TabBody";
 import TabHeader from "../../components/common/Tab/TabHeader";
 import TabWrapper, { TabData } from "../../components/common/Tab/TabWrapper";
-import TextChunk from "../../components/common/TextChunk";
-import Pagination from "../../components/pagination/Pagination";
-import PostList from "../../components/post/PostList";
 import MemorialInfomations from "./MemorialInfomations";
 import MemorialPosts from "./MemorialPosts";
 import styles from "./style.module.css";
@@ -27,15 +24,11 @@ const MemorialMainContent:React.FC = () => {
         },
     ]);
 
-    const findTabById = useCallback((id:TabData["id"]) => {
-        return tabList.find((tabData) => tabData.id === id);
-    }, [tabList]);
-
     const findTabByName = useCallback((name:TabData["name"]) => {
         return tabList.find((tabData) => tabData.name === name);
     }, [tabList]);
 
-    const onClickTab = useCallback((id:TabData["id"]) => (evt: React.MouseEvent<HTMLDivElement>) => {
+    const onClickTab = useCallback((id:TabData["id"]) => (_: React.MouseEvent<HTMLDivElement>) => {
         setTabList(prev => prev.map((tabData) => {
             if (tabData.id === id) {
                 return {

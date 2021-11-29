@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./style.module.css";
 
-type TextChunkProps = {
+export type TextChunkProps = {
     content: string;
     isParagraph?: boolean;
     charLimit?: number | null;

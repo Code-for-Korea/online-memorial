@@ -1,7 +1,7 @@
 import { ChartData, ChartOptions } from "chart.js";
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import Container from "../../../../../../components/common/Container";
+import FlexRow from "../../../../../../components/common/FlexRow";
 import BasicCard from "../BasicCard";
 import styles from "./style.module.css";
 
@@ -29,6 +29,7 @@ const StatisticByTimeCard:React.FC<StatisticByTimeCardProps> = () => {
     }
     const options: ChartOptions<"bar"> = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 display: false
@@ -45,7 +46,7 @@ const StatisticByTimeCard:React.FC<StatisticByTimeCardProps> = () => {
                     maxRotation: 0,
                     minRotation: 0,
                     color: "#ffffff",
-                    callback: (value, index, labels) => {
+                    callback: (value, index, _) => {
                         return value === 6 || value === 18 ? `${timeline[index]}` : ""
                     }
                 }
@@ -58,9 +59,9 @@ const StatisticByTimeCard:React.FC<StatisticByTimeCardProps> = () => {
 
     return (
         <BasicCard title={title} subtitle={subtitle}>
-            <Container style={styles["statistic-by-time--container__wrapper"]}>
-                <Bar data={data} options={options}/>
-            </Container>
+            <FlexRow style={styles["statistic-by-time--container__wrapper"]}>
+                <Bar data={data} options={options} />
+            </FlexRow>
         </BasicCard>
     )
 };

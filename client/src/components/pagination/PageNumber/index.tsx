@@ -42,9 +42,6 @@ const PageNumber:React.FC<PageNumberProps> = ({ centerNumber, oddNumberForDispla
 
     return (
         <FlexRow style={styles["pagination-page-number__wrapper"]}>
-            {/* {
-                numbersToDisplay[0] !== 1 && <TextChunk content="..." style={`${styles["pagination--page-number__default"]}`}/>
-            } */}
             {
                 numbersToDisplay.map((num, idx) => {
                     return <TextChunk 
@@ -54,9 +51,6 @@ const PageNumber:React.FC<PageNumberProps> = ({ centerNumber, oddNumberForDispla
                             />
                 })
             }
-            {/* {
-                numbersToDisplay[numbersToDisplay.length - 1] !== lastNumber && <TextChunk content="..." style={`${styles["pagination--page-number__default"]}`}/>
-            } */}
         </FlexRow>
     )
 };

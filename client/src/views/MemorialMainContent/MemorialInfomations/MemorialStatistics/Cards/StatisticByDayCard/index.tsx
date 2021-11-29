@@ -1,7 +1,7 @@
-import { ChartData, ChartOptions, ScaleOptionsByType } from "chart.js";
+import { ChartData, ChartOptions } from "chart.js";
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import Container from "../../../../../../components/common/Container";
+import FlexRow from "../../../../../../components/common/FlexRow";
 import BasicCard from "../BasicCard";
 import styles from "./style.module.css";
 
@@ -25,6 +25,7 @@ const StatisticByDayCard:React.FC<StatisticByDayCardProps> = () => {
     }
     const options: ChartOptions<"bar"> = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 display: false
@@ -49,9 +50,9 @@ const StatisticByDayCard:React.FC<StatisticByDayCardProps> = () => {
 
     return (
         <BasicCard title={title} subtitle={subtitle}>
-            <Container style={styles["statistic-by-day--container__wrapper"]}>
+            <FlexRow style={styles["statistic-by-day--container__wrapper"]}>
                 <Bar data={data} options={options}/>
-            </Container>
+            </FlexRow>
         </BasicCard>
     )
 };
