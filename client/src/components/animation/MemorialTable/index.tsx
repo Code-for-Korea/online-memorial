@@ -34,7 +34,7 @@ const MemorialTable:React.FC = () => {
             }
             <AnimatedImage src={`${process.env.PUBLIC_URL}/assets/image/flower-left.svg`} styleWithAnimation={styles["memorial-animation--flower__right"]}/>
             <AnimatedImage src={`${process.env.PUBLIC_URL}/assets/image/flower-left.svg`} styleWithAnimation={styles["memorial-animation--flower__left"]}/>
-            <HazyLight styleWithPosition={styles["memorial-animation--candle__light"]} top={window.innerHeight > 500 ? 60 : 25} left={50}/>
+            <HazyLight styleWithPosition={styles["memorial-animation--candle__light"]} />
             <AnimatedImage src={`${process.env.PUBLIC_URL}/assets/image/candle.svg`} styleWithAnimation={styles["memorial-animation--candle"]}/>
             <AnimatedImage src={`${process.env.PUBLIC_URL}/assets/image/table.svg`} styleWithAnimation={styles["memorial-animation--table"]}/>
         </Container>

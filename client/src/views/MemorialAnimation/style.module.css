@@ -6,7 +6,7 @@
 
 .memorial-animation--subcontent-wrapper {
     position: absolute;
-    top: 45%;
+    top: calc(45% + 3.0vmin);
     height: 60%;
     justify-content: flex-start;
     align-items: center;
@@ -25,7 +25,7 @@
 }
 
 .memorial-animation--text {
-    font-size: 3.0vh;
+    font-size: 3.0vmin;
     font-weight: 800;
     line-height: 1.5;
     padding: 0 0 0 1em;
