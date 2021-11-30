@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useState } from "react";
 import Button from "../../common/Button";
 import Container from "../../common/Container";
 import FlexRow from "../../common/FlexRow";
@@ -35,12 +35,7 @@ const CarouselWrapper:React.FC<CarouselWrapperProps> = ({ children }) => {
         } else { // go to left side
             setSelectedCardIdx((prev) => prev > 0 ? prev - 1 : 0)
         }
-    }, [touchStart])
-
-    useEffect(() => {
-        console.log(selectedCardIdx);
-        
-    }, [selectedCardIdx])
+    }, [touchStart, itemLength])
 
     return (
         <Container style={styles["carousel--container__outer-wrapper"]}>
@@ -60,7 +55,7 @@ const CarouselWrapper:React.FC<CarouselWrapperProps> = ({ children }) => {
             <FlexRow style={styles["carousel--navigation-dot__wrapper"]}>
                 {
                     Array(itemLength).fill(0).map((_, idx) => (
-                        <Button style={`${styles["carousel--navigation-dot"]} ${idx === selectedCardIdx ? styles["selected"] : ""}`} onClick={() => onClickDot(idx)} text=""/>
+                        <Button key={`carousel-card-${idx}`} style={`${styles["carousel--navigation-dot"]} ${idx === selectedCardIdx ? styles["selected"] : ""}`} onClick={() => onClickDot(idx)} text=""/>
                     ))
                 }
             </FlexRow>

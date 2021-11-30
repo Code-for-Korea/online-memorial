@@ -1,0 +1,28 @@
+
+.divider {
+    width: 100%;
+    height: 20%;
+    gap: 2.5%;
+}
+
+.divider--title {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 5%;
+    text-align: center;
+}
+
+.divider--flower {
+    width: 10%;
+}
+
+.divider--line__wrapper {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divider--line {
+    display: inline-block;
+    width: 40%;
+    height: 1px;
+}

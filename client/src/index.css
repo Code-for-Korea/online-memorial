@@ -10,20 +10,27 @@ html {
 	color: white;
 	background-color: black;
 	--desktop-width: 1020px;
+	font-size: 16px;
 }
 
 html, body, #root {
-	font-family: NanumMyeongjo;
+	font-family: NanumMyeongjo, serif;
 	font-stretch: normal;
 	font-style: normal;
 	letter-spacing: normal;
 	width: 100%;
 	height: 100%;
+	overflow-x: hidden;
 }
 
 
-@media screen and (orientation: landscape) {
+@media screen and (max-width: 789px) and (orientation: landscape) {
+
+	html {
+		font-size: 14px;
+	}
+
 	#root {
-		margin-top: 2em;
+		padding-top: 20%;
 	}
 }

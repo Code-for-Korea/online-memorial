@@ -6,7 +6,7 @@ import TextChunk from "../../components/common/TextChunk";
 import AddPostModal from "./AddPostModal";
 import styles from "./style.module.css";
 
-type MemorialAnimationProps = {
+export type MemorialAnimationProps = {
     count: number;
     year?: number;
 }
@@ -17,7 +17,7 @@ const MemorialAnimation:React.FC<MemorialAnimationProps> = ({ count, year = new 
     const memorialTextContent = `${year}년, 산업 재해로 인해\n사망한 분들의 숫자입니다`;
     const addPostButtonText = "추모글 남기기";
 
-    const onClickAddPost = (evt: React.MouseEvent<HTMLButtonElement>) => {
+    const onClickAddPost = (_: React.MouseEvent<HTMLButtonElement>) => {
         setShowAddPostModal(true);
     }
 
@@ -32,9 +32,11 @@ const MemorialAnimation:React.FC<MemorialAnimationProps> = ({ count, year = new 
     return (
         <FlexColumn style={styles["memorial-animation--wrapper"]}>
             <MemorialTable />
-            <TextChunk style={styles["memorial-animation--count"]} content={`${count}`}/>
-            <TextChunk style={styles["memorial-animation--text"]} content={memorialTextContent} />
-            <Button text={addPostButtonText} onClick={onClickAddPost} style={styles["memorial-animation--button"]}/>
+            <FlexColumn style={styles["memorial-animation--subcontent-wrapper"]}>
+                <TextChunk style={styles["memorial-animation--count"]} content={`${count}`} isParagraph={true} />
+                <TextChunk style={styles["memorial-animation--text"]} content={memorialTextContent} />
+                <Button text={addPostButtonText} onClick={onClickAddPost} style={styles["memorial-animation--button"]}/>
+            </FlexColumn>
             {
                 showAddPostModal && (
                     <AddPostModal onSubmitPost={onSubmitPost} onCloseModal={onCloseModal}/>

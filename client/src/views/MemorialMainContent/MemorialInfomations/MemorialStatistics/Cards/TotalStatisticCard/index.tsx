@@ -29,7 +29,7 @@ const TotalStatisticCard:React.FC<TotalStatisticCardProps> = () => {
     useEffect(() => {
         updateDeadCount();
         updateInjuredCount();
-    }, [])
+    }, [updateDeadCount, updateInjuredCount])
 
     return (
         <BasicCard title={title} subtitle={subtitle}>

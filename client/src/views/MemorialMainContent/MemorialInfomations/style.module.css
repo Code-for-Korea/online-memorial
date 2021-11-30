@@ -1,0 +1,7 @@
+.memorial-information {
+    min-height: 100vh;
+    height: fit-content;
+    justify-content: center;
+    gap: 2.5%;
+    padding: 2.5% 1%;
+}

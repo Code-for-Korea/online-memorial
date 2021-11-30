@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, {useCallback, useState} from "react";
 import Button from "../../../components/common/Button";
 import FlexColumn from "../../../components/common/FlexColumn";
 import TextChunk from "../../../components/common/TextChunk";
@@ -7,11 +7,11 @@ import ModalWrapper from "../../../components/modal/ModalWrapper";
 import styles from "./style.module.css";
 
 type AddPostModalProps = {
-    onSubmitPost: (text:string) => void;
-    onCloseModal: () =>  void;
+    onSubmitPost: (text: string) => void;
+    onCloseModal: () => void;
 }
 
-const AddPostModal:React.FC<AddPostModalProps> = ({ onSubmitPost, onCloseModal }) => {
+const AddPostModal: React.FC<AddPostModalProps> = ({onSubmitPost, onCloseModal}) => {
 
     const [postText, setPostText] = useState("");
     const buttonText = "글 남기기";
@@ -25,7 +25,7 @@ const AddPostModal:React.FC<AddPostModalProps> = ({ onSubmitPost, onCloseModal }
         evt.preventDefault();
         onSubmitPost(postText);
         onCloseModal();
-    }, [postText]);
+    }, [postText, onCloseModal, onSubmitPost]);
 
     const onClickStop = useCallback((evt: React.MouseEvent<HTMLElement>) => {
         evt.stopPropagation();
@@ -37,13 +37,14 @@ const AddPostModal:React.FC<AddPostModalProps> = ({ onSubmitPost, onCloseModal }
                 <TextChunk content={title} style={styles["add-post-modal--title"]}/>
                 <form onSubmit={onSubmitButtonClick} className={styles["add-post-modal--form"]}>
                     <PostPaper>
-                        <img className={styles["add-post-modal--form__textarea-icon"]} src={process.env.PUBLIC_URL + "/assets/image/write.svg"} alt={title} />
-                        <textarea 
-                            onChange={onChangePostText} 
-                            name="memorial-text" 
+                        <img className={styles["add-post-modal--form__textarea-icon"]}
+                             src={process.env.PUBLIC_URL + "/assets/image/write.svg"} alt={title}/>
+                        <textarea
+                            onChange={onChangePostText}
+                            name="memorial-text"
                             className={styles["add-post-modal--form__textarea"]}
                             onClick={onClickStop}
-                        ></textarea>
+                        />
                     </PostPaper>
                     <Button type="submit" text={buttonText} onClick={onClickStop}/>
                 </form>
