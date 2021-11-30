@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://online-memorial.cmgx3jqtlg4h.ap-northeast-2.rds.amazonaws.com/online_memorial?useUnicode=true&characterEncoding=UTF-8
+    username: byAXM9wiavIJLFyBY7mq5g==
+    password: GhC0ZW/t0SRp9Ql0GRjQgU8CdTlhNNLIxhkzcWYSz8g=
+    configuration:
+      maximum-pool-size: 5
+      data-source-properties:
+        characterEncoding: UTF-8
+        zeroDateTimeBehavior: convertToNull
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database: mysql
