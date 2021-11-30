@@ -1,10 +1,10 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
-import MemorialInfomations from "../views/MemorialMainContent/MemorialInfomations";
+import MemorialInformation from "../views/MemorialMainContent/MemorialInfomations";
 
 export default {
-    title: "MemorialMainContent/MemorialInfomations",
-    component: MemorialInfomations
-} as ComponentMeta<typeof MemorialInfomations>
+    title: "MemorialMainContent/MemorialInformation",
+    component: MemorialInformation
+} as ComponentMeta<typeof MemorialInformation>
 
-export const MemorialInfomationsSample = () => <MemorialInfomations></MemorialInfomations>;
+export const MemorialInformationSample = () => <MemorialInformation/>

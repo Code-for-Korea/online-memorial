@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "../../Container";
+import styles from "./style.module.css";
 
 export type TabData = {
     id: number;
@@ -14,7 +15,7 @@ type TabWrapperProps = {
 const TabWrapper:React.FC<TabWrapperProps> = ({ children }) => {
 
     return (
-        <Container>
+        <Container style={styles["tab--wrapper"]}>
             {
                 children
             }

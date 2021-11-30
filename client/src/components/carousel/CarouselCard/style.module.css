@@ -1,11 +1,10 @@
 .carousel--card__wrapper {
     border-radius: .5em;
     background-color: #FFFFFF0F;
-    width: 98%;
+    width: 70%;
     height: fit-content;
-    min-height: 15em;
-    padding: 3em 2em;
-    margin: 2em 1%;
+    padding: 5vh 2em;
+    margin: 1%;
     color: white;
     overflow-y: hidden;
 }

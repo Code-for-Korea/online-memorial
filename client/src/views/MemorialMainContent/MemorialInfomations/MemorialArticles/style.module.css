@@ -1,0 +1,6 @@
+.news-card--list {
+    height: fit-content;
+    max-height: 100%;
+    padding: 2% 5%;
+    gap: 2.5%;
+}

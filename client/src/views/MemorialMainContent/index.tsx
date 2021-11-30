@@ -3,7 +3,7 @@ import FlexColumn from "../../components/common/FlexColumn";
 import TabBody from "../../components/common/Tab/TabBody";
 import TabHeader from "../../components/common/Tab/TabHeader";
 import TabWrapper, { TabData } from "../../components/common/Tab/TabWrapper";
-import MemorialInfomations from "./MemorialInfomations";
+import MemorialInformation from "./MemorialInfomations";
 import MemorialPosts from "./MemorialPosts";
 import styles from "./style.module.css";
 
@@ -51,7 +51,7 @@ const MemorialMainContent:React.FC = () => {
                     <MemorialPosts />
                 </TabBody>
                 <TabBody visible={findTabByName("추모관")?.visible??false}>
-                    <MemorialInfomations />
+                    <MemorialInformation />
                 </TabBody>
             </TabWrapper>
         </FlexColumn>
