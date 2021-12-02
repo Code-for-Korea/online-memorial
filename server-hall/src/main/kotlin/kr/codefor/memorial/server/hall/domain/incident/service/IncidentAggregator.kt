@@ -14,8 +14,8 @@ class IncidentAggregator(
             it.dateTime.dayOfWeek
         }.map {
             it.key to IncidentCount(
-                killed = it.value.sumOf { incident -> incident.killed!! },
-                injured = it.value.sumOf { incident -> incident.injured!! }
+                killed = it.value.sumOf { incident -> incident.killed },
+                injured = it.value.sumOf { incident -> incident.injured }
             )
         }.toMap()
     }

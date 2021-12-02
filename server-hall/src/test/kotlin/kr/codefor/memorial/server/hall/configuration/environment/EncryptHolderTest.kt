@@ -1,6 +1,5 @@
-package kr.codefor.memorial.server.hall
+package kr.codefor.memorial.server.hall.configuration.environment
 
-import kr.codefor.memorial.server.hall.configuration.environment.AesEncryptHolder
 import org.junit.jupiter.api.Test
 
 class EncryptHolderTest {

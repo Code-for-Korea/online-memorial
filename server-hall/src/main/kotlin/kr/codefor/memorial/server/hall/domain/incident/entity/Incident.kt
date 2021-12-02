@@ -1,26 +1,45 @@
 package kr.codefor.memorial.server.hall.domain.incident.entity
 
-import kr.codefor.memorial.server.hall.util.lateInit
+import kr.codefor.memorial.server.hall.configuration.jpa.BaseEntity
 import java.time.LocalDateTime
-import javax.persistence.*
+import javax.persistence.Entity
+import javax.persistence.Table
 
 @Entity
 @Table(name = "incidents")
-class Incident {
+class Incident internal constructor(
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = lateInit()
+    val dateTime: LocalDateTime,
 
-    val dateTime: LocalDateTime = lateInit()
+    val city: String,
 
-    val city: String = lateInit()
+    val killed: Long,
 
-    val killed: Long? = lateInit()
+    val injured: Long,
 
-    val injured: Long? = lateInit()
+    val type: String,
 
-    val type: String = lateInit()
+    val reason: String
+    
+) : BaseEntity() {
+    companion object {
 
-    val reason: String = lateInit()
+        fun of(
+            dateTime: LocalDateTime,
+            city: String,
+            killed: Long,
+            injured: Long,
+            type: String,
+            reason: String
+        ): Incident {
+            return Incident(
+                dateTime = dateTime,
+                city = city,
+                killed = killed,
+                injured = injured,
+                type = type,
+                reason = reason
+            )
+        }
+    }
 }
