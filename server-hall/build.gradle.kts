@@ -30,6 +30,12 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.boot:spring-boot-starter-validation")
 
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC")
+
+    // Jsoup
+    implementation("org.jsoup:jsoup:1.14.3")
+
+
     // JPA & MariaDB Driver
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
