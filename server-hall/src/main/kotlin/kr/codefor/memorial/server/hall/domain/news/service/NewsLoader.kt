@@ -1,6 +1,5 @@
 package kr.codefor.memorial.server.hall.domain.news.service
 
-import kotlinx.coroutines.runBlocking
 import org.springframework.stereotype.Service
 import java.net.URL
 
@@ -13,15 +12,13 @@ class NewsLoader(
     fun loadLastedFive(): List<NewsMetaData> {
         val fetchNews = newsFetcher.fetchLatest(fetchCount = FETCH_COUNT)
 
-        return runBlocking {
-            fetchNews.map {
-                newsMetaDataParser.parse(URL(it.infoLink))
-            }
+        return fetchNews.map {
+            newsMetaDataParser.parseAsync(URL(it.infoLink))
         }
     }
 
     companion object {
 
-        const val FETCH_COUNT = 5L
+        private const val FETCH_COUNT = 5L
     }
 }
