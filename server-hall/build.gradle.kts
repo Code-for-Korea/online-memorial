@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 plugins {
     id("org.springframework.boot") version "2.6.0"
@@ -7,6 +9,8 @@ plugins {
     kotlin("plugin.spring") version "1.6.0"
     kotlin("plugin.jpa") version "1.6.0"
     kotlin("kapt") version "1.6.0"
+
+    id("com.google.cloud.tools.jib") version "3.1.4"
 }
 
 configurations {
@@ -48,6 +52,28 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.mockk:mockk:1.10.0")
     testImplementation("io.strikt:strikt-core:0.32.0")
+}
+
+
+jib {
+    from {
+        image = "adoptopenjdk/openjdk11:jdk-11.0.10_9-debian"
+    }
+    to {
+        image = "memorial-server-hall"
+        tags = if ("prod" == System.getenv("ENV")) {
+            setOf(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")))
+        } else {
+            setOf("latest")
+        }
+    }
+    container {
+        ports = listOf("8080")
+        creationTime = "USE_CURRENT_TIMESTAMP"
+    }
+    extraDirectories {
+        setPaths("/memorial/logs/app")
+    }
 }
 
 tasks.withType<KotlinCompile> {
