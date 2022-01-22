@@ -32,9 +32,10 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC")
 
+    implementation("io.springfox:springfox-boot-starter:3.0.0")
+
     // Jsoup
     implementation("org.jsoup:jsoup:1.14.3")
-
 
     // JPA & MariaDB Driver
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")

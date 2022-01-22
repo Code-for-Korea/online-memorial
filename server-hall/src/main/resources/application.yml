@@ -1,4 +1,7 @@
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://online-memorial.cmgx3jqtlg4h.ap-northeast-2.rds.amazonaws.com/online_memorial?useUnicode=true&characterEncoding=UTF-8
