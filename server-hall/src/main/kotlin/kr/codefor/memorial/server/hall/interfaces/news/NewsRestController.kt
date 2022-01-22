@@ -15,7 +15,7 @@ class NewsRestController(
         produces = [MediaType.APPLICATION_JSON_VALUE]
     )
     fun getNewsLatest(): List<NewsMetaDataDto> {
-        return newsLoader.loadLastedFive().map {
+        return newsLoader.loadRandomizeFive().map {
             it.toDto()
         }
     }

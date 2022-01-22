@@ -9,7 +9,7 @@ class NewsFetcher(
     private val newsRepository: NewsRepository
 ) {
 
-    fun fetchLatest(fetchCount: Long): List<News> {
-        return newsRepository.fetchLatest(fetchCount)
+    fun fetchRandomize(fetchCount: Long): List<News> {
+        return newsRepository.fetchRandomize(fetchCount)
     }
 }

@@ -9,8 +9,8 @@ class NewsLoader(
     private val newsMetaDataParser: NewsMetaDataParser
 ) {
 
-    fun loadLastedFive(): List<NewsMetaData> {
-        val fetchNews = newsFetcher.fetchLatest(fetchCount = FETCH_COUNT)
+    fun loadRandomizeFive(): List<NewsMetaData> {
+        val fetchNews = newsFetcher.fetchRandomize(fetchCount = FETCH_COUNT)
 
         return fetchNews.map {
             newsMetaDataParser.parseAsync(URL(it.infoLink))
