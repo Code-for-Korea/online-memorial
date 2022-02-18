@@ -1,0 +1,6 @@
+.memorial-data-table--body-cell {
+    padding: 1rem 0.5rem;;
+    border-bottom: 0.1rem rgba(255, 255, 255, 0.1) solid;
+    opacity: 0.8;
+    text-align: left;
+}

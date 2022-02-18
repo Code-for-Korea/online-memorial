@@ -4,16 +4,24 @@
 }
 
 /* desktop */
-@media screen and (min-width: 769px) {
+@media screen and (max-width: 500px) and (orientation: portrait) {
+
     .layout {
-        width: 40%;
+        width: 95%;
     }
 }
 
-/* tablet */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 789px) and (orientation: portrait) {
+
     .layout {
-        width: 100%;
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 789px) and (orientation: portrait) {
+
+    .layout {
+        width: 80%;
     }
 }
 
