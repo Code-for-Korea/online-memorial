@@ -4,6 +4,7 @@ import FlexRow from "../../../../../../components/common/FlexRow";
 import TextChunk from "../../../../../../components/common/TextChunk";
 import BasicCard from "../BasicCard";
 import styles from "./style.module.css";
+import DataService from "../../../../../../services/data.service";
 
 type TotalStatisticCardProps = {}
 
@@ -16,14 +17,14 @@ const TotalStatisticCard:React.FC<TotalStatisticCardProps> = () => {
     const title = "재해자 수"
     const subtitle = "전체 산업재해 사망사고"
 
-    const updateDeadCount = useCallback(() => {
-        // api call
-        setDead(190);
+    const updateDeadCount = useCallback(async () => {
+        const data = await DataService.getTotalCount("dead", new Date(Date.now()).getFullYear());
+        setDead(data);
     }, [])
 
-    const updateInjuredCount = useCallback(() => {
-        // api call
-        setInjured(35);
+    const updateInjuredCount = useCallback(async () => {
+        const data = await DataService.getTotalCount("injured", new Date(Date.now()).getFullYear());
+        setInjured(data);
     }, [])
 
     useEffect(() => {

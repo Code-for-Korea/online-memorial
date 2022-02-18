@@ -1,13 +1,38 @@
-import React, {useCallback, useMemo, useState} from "react";
-import DataTableRow from "../../../../dataTable/DataTableRow";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
+import DataTableRow from "../../../../components/dataTable/DataTableRow";
 import styles from "./style.module.css";
 import FlexColumn from "../../../../components/common/FlexColumn";
 import Pagination from "../../../../components/pagination/Pagination";
 import Container from "../../../../components/common/Container";
+import DataService from "../../../../services/data.service";
 
 type MemorialDataTableProps = {}
 
+export type DataTableItem = {
+    date: string,
+    weekday: string,
+    deathCount: number,
+    injuredCount: number,
+    district: string,
+    accidentType: string,
+    articleUrl: string,
+}
+
+export type DataTableList = DataTableItem[];
+
 const MemorialDataTable:React.FC<MemorialDataTableProps> = () => {
+
+    const [postPageNum, setPostPageNum] = useState<number>(1);
+    const [dataTableList, setDataTableList] = useState<DataTableList>([]);
+
+    const initializeDataTableList = useCallback(async () => {
+        const data = await DataService.getDataTable(postPageNum);
+        setDataTableList(data);
+    }, [postPageNum]);
+
+    useEffect(() => {
+        initializeDataTableList();
+    }, []);
 
     const headerList = [
       "사고날짜",
@@ -19,35 +44,18 @@ const MemorialDataTable:React.FC<MemorialDataTableProps> = () => {
         "세부내용",
     ];
 
-    const dateFormatOption = {
-        year: "numeric",
-        month: "numeric",
-        day: "numeric"
-    } as Intl.DateTimeFormatOptions;
-
-    const sampleData: {[key:string]: number|string}[] = Array.from(Array(35), () => ({
-        date: new Date(Date.now()).toLocaleString('ko-KR', dateFormatOption).slice(0, -1),
-        weekday: WEEKDAY[new Date(Date.now()).getDay()],
-        deathCount: 11,
-        injuredCount: 12,
-        district: "김포시",
-        accidentType: "충돌",
-        articleUrl: "https://google.com",
-    }));
-
     const dataPerPage = 10;
-    const [postPageNum, setPostPageNum] = useState<number>(1);
     const updatePostPageNum = useCallback((newPageNum) => {
         setPostPageNum(newPageNum);
     }, []);
 
     const getLastPostPageNum = useCallback(() => {
-        return Math.floor(sampleData.length / dataPerPage) + 1 ;
-    }, [sampleData, dataPerPage]);
+        return Math.floor(dataTableList.length / dataPerPage) + 1 ;
+    }, [dataTableList, dataPerPage]);
 
     const currentDatas = useMemo(() => {
-        return sampleData.slice((postPageNum - 1) * dataPerPage, postPageNum * dataPerPage);
-    }, [postPageNum, dataPerPage, sampleData]);
+        return dataTableList.slice((postPageNum - 1) * dataPerPage, postPageNum * dataPerPage);
+    }, [postPageNum, dataPerPage, dataTableList]);
 
     return (
         <FlexColumn>
@@ -68,7 +76,7 @@ const MemorialDataTable:React.FC<MemorialDataTableProps> = () => {
                                 <DataTableRow key={`memorial-data-table-r${idx}c${key}`} content={
                                     key === "articleUrl"
                                         ? <a className={styles["memorial-data-table--body-link"]} rel="noreferrer" target="_blank" href={data[key] as string}>사고 기사 보기</a>
-                                        : key === "weekday" ? <span className={styles["memorial-data-table--body-highlight"]}>{data[key]}</span> : data[key]}
+                                        : key === "weekday" ? <span className={styles["memorial-data-table--body-highlight"]}>{data[key]}</span> : `${data[key as keyof DataTableItem]}`}
                                 />
                             ))
                         }
@@ -86,7 +94,7 @@ const MemorialDataTable:React.FC<MemorialDataTableProps> = () => {
 
 export default MemorialDataTable;
 
-const WEEKDAY = [
+export const WEEKDAY = [
     "일",
     "월",
     "화",
@@ -94,4 +102,10 @@ const WEEKDAY = [
     "목",
     "금",
     "토",
-]
+];
+
+export const dateFormatOption = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric"
+} as Intl.DateTimeFormatOptions;
