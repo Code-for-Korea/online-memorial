@@ -18,7 +18,7 @@ const TotalStatisticCard:React.FC<TotalStatisticCardProps> = () => {
     const subtitle = "전체 산업재해 사망사고"
 
     const updateDeadCount = useCallback(async () => {
-        const data = await DataService.getTotalCount("dead", new Date(Date.now()).getFullYear());
+        const data = await DataService.getTotalCount("killed", new Date(Date.now()).getFullYear());
         setDead(data);
     }, [])
 

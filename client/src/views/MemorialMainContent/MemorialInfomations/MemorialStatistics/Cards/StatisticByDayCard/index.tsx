@@ -15,7 +15,7 @@ const StatisticByDayCard:React.FC<StatisticByDayCardProps> = () => {
     const [statisticByDay, setStatisticByDay] = useState<StatisticDataByDay>([]);
 
     const initializeStatisticByDay = useCallback(async () => {
-        const data = await DataService.getStatistic(new Date(Date.now()).getFullYear(), "day");
+        const data = await DataService.getStatistic(new Date(Date.now()).getFullYear());
         if (data !== null) {
             setStatisticByDay(data);
         }

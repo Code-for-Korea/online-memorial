@@ -9,6 +9,11 @@
     flex-wrap: wrap;
 }
 
+.news-card-link {
+    text-decoration: none;
+    color: white;
+}
+
 .news-card--thumbnail__wrapper {
     flex: 1;
     justify-content: center;

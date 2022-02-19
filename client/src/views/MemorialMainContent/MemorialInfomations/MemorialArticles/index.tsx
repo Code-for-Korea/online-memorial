@@ -7,10 +7,10 @@ import DataService from "../../../../services/data.service";
 type MemorialArticlesProps = {}
 
 export type NewsItem = {
-    id: number,
     title: string,
     description: string,
-    thumbnailUrl: string | null,
+    thumbnail: string | null,
+    url: string,
 };
 
 export type News = NewsItem[];
@@ -31,7 +31,15 @@ const MemorialArticles:React.FC<MemorialArticlesProps> = () => {
     return (
         <FlexColumn style={styles["news-card--list"]}>
             {
-                news.map(({id, title, description, thumbnailUrl}) => <NewsCard key={`news-card-${id}`} title={title} description={description} thumbnailUrl={thumbnailUrl??undefined}/> )
+                news.map(({title, description, thumbnail, url}) => (
+                    <NewsCard
+                        key={`news-card-${title}`}
+                        title={title}
+                        description={description}
+                        thumbnail={thumbnail??undefined}
+                        url={url}
+                    />
+                ) )
             }
         </FlexColumn>
     )
