@@ -57,7 +57,7 @@ dependencies {
 
 jib {
     from {
-        image = "adoptopenjdk/openjdk11:jdk-11.0.10_9-debian"
+        image = "adoptopenjdk/openjdk16:x86_64-alpine-jdk-16.0.1_9"
     }
     to {
         image = "memorial-server-hall"
@@ -79,7 +79,7 @@ jib {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "11"
+        jvmTarget = "16"
     }
 }
 
