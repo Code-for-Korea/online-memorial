@@ -1,0 +1,36 @@
+.memorial-data-table {
+    border-spacing: 0;
+    font-size: 0.05em;
+    padding: 3em 0.05rem;
+}
+
+.memorial-data-table--header {
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.memorial-data-table--header-row {
+
+}
+
+.memorial-data-table--header-cell {
+    text-align: left;
+    padding: 1rem 0 1rem 0.5rem;
+    border-bottom: 0.1rem rgba(255, 255, 255, 0.1) solid;
+    opacity: 0.8;
+}
+
+.memorial-data-table--body-link {
+    text-decoration: none;
+    color: white;
+    opacity: 0.8;
+}
+
+.memorial-data-table--body-highlight {
+    border-radius: 0.1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem;
+}
+
+.memorial-data-table--pagination__wrapper {
+    padding: 10%;
+}

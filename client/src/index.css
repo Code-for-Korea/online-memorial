@@ -23,6 +23,34 @@ html, body, #root {
 	overflow-x: hidden;
 }
 
+@media screen and (max-width: 500px) and (orientation: portrait) {
+
+	html {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 789px) and (orientation: portrait) {
+
+	html {
+		font-size: 12px;
+	}
+
+	#root {
+		padding-top: 15%;
+	}
+}
+
+@media screen and (min-width: 789px) and (orientation: portrait) {
+
+	html {
+		font-size: 14px;
+	}
+
+	#root {
+		padding-top: 5%;
+	}
+}
 
 @media screen and (max-width: 789px) and (orientation: landscape) {
 
@@ -31,6 +59,6 @@ html, body, #root {
 	}
 
 	#root {
-		padding-top: 20%;
+		padding-top: 15%;
 	}
 }

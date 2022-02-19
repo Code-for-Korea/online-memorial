@@ -1,32 +1,47 @@
 import { ChartData, ChartOptions } from "chart.js";
-import React from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import { Bar } from "react-chartjs-2";
 import FlexRow from "../../../../../../components/common/FlexRow";
 import BasicCard from "../BasicCard";
 import styles from "./style.module.css";
+import DataService from "../../../../../../services/data.service";
 
 type StatisticByTimeCardProps = {}
 
+export type StatisticDataByTime = number[];
+
 const StatisticByTimeCard:React.FC<StatisticByTimeCardProps> = () => {
-    
+
+    const [statisticByTime, setStatisticByTime] = useState<StatisticDataByTime>([]);
+
+    const initializeStatisticByTime = useCallback(async () => {
+        const data = await DataService.getStatistic(new Date(Date.now()).getFullYear());
+        if (data !== null) {
+            setStatisticByTime(data);
+        }
+    }, []);
+
     const title = "시간대별 비율 (%)"
     const subtitle = "전체 산업재해 사망사고"
     const timeline = Array(24).fill(0).map((_, idx) => {
         if (idx < 6) return idx + 6
         else return idx - 6
     })
-    const data: ChartData<"bar"> = {
-        labels: timeline,
-        datasets: [
-            {
-                label: title,
-                data: timeline,
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                borderWidth: 0,
-                borderRadius: 5
-            }
-        ]
-    }
+    const data = useMemo(() => {
+        const _data: ChartData<"bar"> = {
+            labels: timeline,
+            datasets: [
+                {
+                    label: title,
+                    data: statisticByTime,
+                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    borderWidth: 0,
+                    borderRadius: 5
+                }
+            ]
+        };
+        return _data;
+    }, [statisticByTime]);
     const options: ChartOptions<"bar"> = {
         responsive: true,
         maintainAspectRatio: false,
@@ -56,6 +71,10 @@ const StatisticByTimeCard:React.FC<StatisticByTimeCardProps> = () => {
             }
         }
     }
+
+    useEffect(() => {
+        initializeStatisticByTime();
+    }, [])
 
     return (
         <BasicCard title={title} subtitle={subtitle}>

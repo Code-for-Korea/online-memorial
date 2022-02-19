@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const PostAxios = axios.create({
-    baseURL: "http://localhost:8000/"
+    baseURL: "/"
 })
 
 export const DataAxios = axios.create({
-    baseURL: "http://localhost:8000/"
+    baseURL: "/api/v1"
 })
