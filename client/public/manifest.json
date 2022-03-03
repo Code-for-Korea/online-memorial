@@ -1,6 +1,6 @@
 {
   "short_name": "사회적 추모",
-  "name": "사회적 추모 - ",
+  "name": "사회적 추모",
   "icons": [
     {
       "src": "favicon-dark.svg",
@@ -21,5 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#000000"
 }
