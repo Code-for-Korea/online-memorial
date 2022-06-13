@@ -1,39 +1,25 @@
-<%
-  local_env = {}
-  if Rails.env.development? || Rails.env.test?
-    branch = %x[git rev-parse --abbrev-ref HEAD].strip rescue nil
-    branch = branch.gsub('/', '_')
-    local_env = YAML.load_file("#{Rails.root}/local_env.yml").dig(Rails.env) || {}
-
-    if(local_env.dig('devdb') != nil)
-      branch = local_env.dig('devdb')
-    end
-  end
-%>
-
+# SQLite. Versions 3.8.0 and up are supported.
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem "sqlite3"
+#
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= local_env.dig('database', 'username') %>
-  password: <%= local_env.dig('database', 'password') %>
-  <% if(local_env.dig('database', 'host') != nil) %>
-  host:  <%= local_env.dig('database', 'host') %>
-  <% end %>
-  <% if(local_env.dig('database', 'port') != nil) %>
-  port:  <%= local_env.dig('database', 'port') %>
-  <% end %>
+  timeout: 5000
 
 development:
   <<: *default
-  database: candlelight_development
+  database: db/development.sqlite3
 
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: candlelight_test
+  database: db/test.sqlite3
 
 production:
   <<: *default
-  database: candlelight_production
-  username: candlelight
-  password: <%= ENV['CANDLELIGHT_DATABASE_PASSWORD'] %>
+  database: db/production.sqlite3
