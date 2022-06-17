@@ -1,0 +1,100 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/disasters":
+    get:
+      summary: list disasters
+      responses:
+        '200':
+          description: successful
+  "/disasters/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show disaster
+      responses:
+        '200':
+          description: successful
+  "/posts":
+    get:
+      summary: list posts
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create post
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                body:
+                  type: string
+              required:
+              - name
+              - body
+  "/posts/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show post
+      responses:
+        '200':
+          description: successful
+  "/stats/year/{year}":
+    parameters:
+    - name: year
+      in: path
+      description: year
+      required: true
+      schema:
+        type: string
+    get:
+      summary: year stat
+      responses:
+        '200':
+          description: successful
+  "/stories":
+    get:
+      summary: list stories
+      responses:
+        '200':
+          description: successful
+  "/stories/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show story
+      responses:
+        '200':
+          description: successful
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000

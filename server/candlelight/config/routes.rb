@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   resources :stories, only: [:index, :show]
 
   namespace :admin do
-      resources :stories
-      resources :posts
-      resources :stats
-      resources :disasters
+    resources :stories
+    resources :posts
+    resources :stats
+    resources :disasters
 
-      root to: "stories#index"
-    end
+    root to: "stories#index"
+  end
+
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'  
 end
