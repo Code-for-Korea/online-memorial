@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get '/stats/year/:year', to: 'stats#year'
+
+  resources :posts, only: [:index, :show, :create]
+  resources :disasters, only: [:index, :show]
+  resources :stories, only: [:index, :show]
+
   namespace :admin do
       resources :stories
       resources :posts
@@ -7,8 +13,4 @@ Rails.application.routes.draw do
 
       root to: "stories#index"
     end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
