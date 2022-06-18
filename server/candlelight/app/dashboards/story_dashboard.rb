@@ -9,7 +9,7 @@ class StoryDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    image: Field::ActiveStorage,
+    image: Field::String,
     title: Field::String,
     body: Field::String,
     url: Field::String,
