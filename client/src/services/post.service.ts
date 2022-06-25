@@ -1,5 +1,5 @@
-import {PostAxios} from "../api";
-import {PostDataList} from "../components/post/PostList";
+import { PostAxios } from "../api";
+import { PostDataList } from "../components/post/PostList";
 
 export default class PostService {
     static async getPost(year: number, page: number, amount: number): Promise<PostDataList | null> {
@@ -31,8 +31,7 @@ export default class PostService {
         ];
     }
     static async createPost(data: any) {
-        // const response = await PostAxios.post(`/mourners/posts`, data);
-        // return response.status;
-        return 201;
+        const response = await PostAxios.post(`/posts`, data);
+        return response.data;
     }
 }

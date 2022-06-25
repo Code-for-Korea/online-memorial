@@ -1,22 +1,22 @@
 .memorial-animation--wrapper {
-    height: calc(100% + 8em);
+    height: 60rem;
     position: relative;
     animation: fadein 10s;
 }
 
 .memorial-animation--subcontent-wrapper {
     position: absolute;
-    top: calc(45% + 3.0vmin);
+    top: calc(27rem - 5vmin);
     height: 60%;
     justify-content: flex-start;
     align-items: center;
 }
 
 .memorial-animation--count {
-    font-size: 4.5vmax;
+    font-size: 5rem;
     opacity: 0.45;
     font-weight: 800;
-    margin-bottom: 5vh;
+    margin-bottom: 8vh;
     /* position: absolute;
     top: 50%;
     left: 50%;
@@ -25,10 +25,10 @@
 }
 
 .memorial-animation--text {
-    font-size: 3.0vmin;
+    font-size: 2em;
     font-weight: 800;
     line-height: 1.5;
-    padding: 0 0 0 1em;
+    padding: 0;
     margin-bottom: 2.5em;
     /* position: absolute;
     top: 70%;
@@ -38,10 +38,8 @@
 }
 
 .memorial-animation--button {
-    /* position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%); */
+    font-family: 'Nanum Myeongjo', serif !important;
+    font-size: 1.3em;
 }
 
 @keyframes fadein {

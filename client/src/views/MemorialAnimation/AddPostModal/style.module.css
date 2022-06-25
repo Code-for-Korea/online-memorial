@@ -33,7 +33,8 @@
     width: 50em;
     max-width: 100%;
     min-height: 15em;
-    padding: 3rem 2em;
+    padding: 1rem 2em;
+    margin-bottom: 1em;
     color: white;
     background-color: transparent;
     border: 1px solid white;
@@ -44,5 +45,24 @@
 .add-post-modal--form__textarea-icon {
     position: absolute;
     top: 4em;
-    left: 3em;
+    right: 3em;
+}
+
+.add-post-modal--form__input {
+    font-size: 1.5vh;
+    width: 50em;
+    height: 3em;
+    max-width: 100%;
+    padding: 1.2rem 2em;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 0.5em;
+    caret-color: white;
+}
+
+.add-post-modal--form__input-icon {
+    position: absolute;
+    bottom: 3.5em;
+    right: 3em;
 }

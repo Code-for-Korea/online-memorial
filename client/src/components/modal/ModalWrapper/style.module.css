@@ -1,12 +1,11 @@
 .modal--container__wrapper {
     width: 100%;
     height: 100%;
-    opacity: 0.95;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     flex-direction: row;
     justify-content: center;

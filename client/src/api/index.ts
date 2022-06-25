@@ -5,5 +5,5 @@ export const PostAxios = axios.create({
 })
 
 export const DataAxios = axios.create({
-    baseURL: "/api/v1"
+    baseURL: "/"
 })

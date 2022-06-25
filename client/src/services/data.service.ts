@@ -1,10 +1,10 @@
-import {DataAxios} from "../api";
+import { DataAxios } from "../api";
 import {
     DataTableList,
     dateFormatOption,
     WEEKDAY
 } from "../views/MemorialMainContent/MemorialInfomations/MemorialDataTable";
-import {News} from "../views/MemorialMainContent/MemorialInfomations/MemorialArticles";
+import { News } from "../views/MemorialMainContent/MemorialInfomations/MemorialArticles";
 import {
     StatisticDataByDay
 } from "../views/MemorialMainContent/MemorialInfomations/MemorialStatistics/Cards/StatisticByDayCard";
@@ -30,7 +30,7 @@ export default class DataService {
         // const response = await DataAxios.get(`/incidents/aggregate?year=${year}`);
         // console.log(response);
         // return response.data ?? null;
-        const days = [1,2,3,4,5,6,7];
+        const days = [1, 2, 3, 4, 5, 6, 7];
         return days;
     }
 
@@ -43,8 +43,7 @@ export default class DataService {
         // const response = await DataAxios.get(`/data-table?&page=${page}`);
         // return response.data ?? null;
         return Array.from(Array(35), () => ({
-            date: new Date(Date.now()).toLocaleString('ko-KR', dateFormatOption).slice(0, -1),
-            weekday: WEEKDAY[new Date(Date.now()).getDay()],
+            date: `${new Date(Date.now()).toLocaleString('ko-KR', dateFormatOption).slice(0, -1)}/${WEEKDAY[new Date(Date.now()).getDay()]}`,
             deathCount: 11,
             injuredCount: 12,
             district: "김포시",

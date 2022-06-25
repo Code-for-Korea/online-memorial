@@ -7,7 +7,7 @@
 .memorial-animation--table {
     max-width: 80%;
     position: absolute;
-    bottom: 0;
+    top: 13rem;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -15,14 +15,14 @@
 .memorial-animation--candle {
     max-width: 5%;
     position: absolute;
-    bottom: 4.5em;
+    bottom: 4.5rem;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .memorial-animation--candle__light {
     position: absolute;
-    bottom: 4.7em;
+    bottom: 10rem;
     left: 50%;
     transform: translateX(-50%);
     animation: candle-light 10s;
@@ -35,17 +35,19 @@
 }
 
 .memorial-animation--flower__left {
-    max-width: 35%;
+    width: 40%;
+    max-width: 45%;
     position: absolute;
-    top: 40%;
+    top: 50%;
 
     transform: translateY(-50%);
 }
 
 .memorial-animation--flower__right {
-    max-width: 35%;
+    width: 40%;
+    max-width: 45%;
     position: absolute;
-    top: 40%;
+    top: 50%;
     right: 0;
     transform: scaleX(-1) translateY(-50%);
 }

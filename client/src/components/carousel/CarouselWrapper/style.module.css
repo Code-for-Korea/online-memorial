@@ -27,8 +27,8 @@
 .carousel--navigation-dot {
     border-radius: 50%;
     background-color: #FFFFFF39;
-    width: 1em;
-    height: 1em;
+    width: 0.7em;
+    height: 0.7em;
     padding: 0;
     border: none;
 }

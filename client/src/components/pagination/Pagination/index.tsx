@@ -5,19 +5,19 @@ import PageNumber from "../PageNumber";
 import styles from "./style.module.css";
 
 type PaginationProps = {
-    onPageChange: (page:number) => void;
+    onPageChange: (page: number) => void;
     lastPage: number;
     initialPageNum?: number;
 }
 
-const Pagination:React.FC<PaginationProps> = ({ onPageChange, lastPage, initialPageNum }) => {
+const Pagination: React.FC<PaginationProps> = ({ onPageChange, lastPage, initialPageNum }) => {
 
-    const [currentPage, setCurrentPage] = useState<number>(initialPageNum??1);
+    const [currentPage, setCurrentPage] = useState<number>(initialPageNum ?? 1);
 
-    const onMoveButtonClick = useCallback((numberToAdd:number) => (evt: React.MouseEvent<HTMLButtonElement>) => {
+    const onMoveButtonClick = useCallback((numberToAdd: number) => (evt: React.MouseEvent<HTMLImageElement>) => {
         const newPageNum = currentPage + numberToAdd;
         console.log(newPageNum);
-        
+
         if (newPageNum < 1 || newPageNum > lastPage) {
             return;
         }
@@ -27,9 +27,9 @@ const Pagination:React.FC<PaginationProps> = ({ onPageChange, lastPage, initialP
 
     return (
         <FlexRow style={styles["pagination--container__wrapper"]}>
-            <Button text="<" onClick={onMoveButtonClick(-1)} style={styles["pagination--button"]}/>
-            <PageNumber centerNumber={currentPage} oddNumberForDisplayCount={3} lastNumber={lastPage}/>
-            <Button text=">" onClick={onMoveButtonClick(1)} style={styles["pagination--button"]}/>
+            <img src={process.env.PUBLIC_URL + "/assets/icon/ic-arrow-left.svg"} onClick={onMoveButtonClick(-1)} className={styles["pagination--button"]} />
+            <PageNumber centerNumber={currentPage} oddNumberForDisplayCount={3} lastNumber={lastPage} />
+            <img src={process.env.PUBLIC_URL + "/assets/icon/ic-arrow-right.svg"} onClick={onMoveButtonClick(1)} className={styles["pagination--button"]} />
         </FlexRow>
     )
 };

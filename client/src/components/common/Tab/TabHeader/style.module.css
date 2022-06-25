@@ -20,6 +20,8 @@
     align-items: center;
     color: white;
     opacity: 0.2;
+
+    font-size: 1.5em;
 }
 
 .tab--header__default:hover {
