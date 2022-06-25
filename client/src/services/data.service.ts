@@ -34,8 +34,8 @@ export default class DataService {
         return days;
     }
 
-    static async getNews(): Promise<News> {
-        const response = await DataAxios.get("/news");
+    static async getNews(): Promise<{ [key: string]: any }> {
+        const response = await DataAxios.get("/stories");
         return response.data ?? null;
     }
 
