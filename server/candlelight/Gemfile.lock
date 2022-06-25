@@ -144,6 +144,8 @@ GEM
     kaminari-activerecord (1.2.2)
       activerecord
       kaminari-core (= 1.2.2)
+    kaminari-api-meta-data (1.0.1)
+      kaminari (~> 1.1)
     kaminari-core (1.2.2)
     loofah (2.18.0)
       crass (~> 1.0.2)
@@ -332,6 +334,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  kaminari-api-meta-data
   ogpr
   postgresql
   puma (~> 5.0)
