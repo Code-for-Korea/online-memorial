@@ -42,5 +42,13 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
+
+    before_action :default_params
+
+    def default_params
+      request.query_parameters[:post]             ||= {}
+      request.query_parameters[:post][:order]     ||= :id
+      request.query_parameters[:post][:direction] ||= :desc
+    end
   end
 end

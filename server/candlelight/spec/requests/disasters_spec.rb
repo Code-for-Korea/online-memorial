@@ -6,6 +6,8 @@ RSpec.describe 'disasters', type: :request do
 
     get('list disasters') do
       response(200, 'successful') do
+        parameter name: :page, in: :query, type: :integer
+        parameter name: :per_page, in: :query, type: :integer
 
         after do |example|
           example.metadata[:response][:content] = {

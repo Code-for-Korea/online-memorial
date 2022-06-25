@@ -13,7 +13,7 @@ class DisasterDashboard < Administrate::BaseDashboard
     death: Field::Number,
     injury: Field::Number,
     area: Field::String,
-    type: Field::String,
+    category: Field::String,
     url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -29,6 +29,8 @@ class DisasterDashboard < Administrate::BaseDashboard
     happened_on
     death
     injury
+    category
+    area
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -39,7 +41,7 @@ class DisasterDashboard < Administrate::BaseDashboard
     death
     injury
     area
-    type
+    category
     url
     created_at
     updated_at
@@ -53,7 +55,7 @@ class DisasterDashboard < Administrate::BaseDashboard
     death
     injury
     area
-    type
+    category
     url
   ].freeze
 

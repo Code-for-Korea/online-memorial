@@ -1,3 +1,10 @@
 class Story < ApplicationRecord
-  has_one_attached :image
+  validates :url, presence: true
+
+  before_validation do |story|
+    og = Ogpr.fetch(story.url)
+    story.title = og.title
+    story.body = og.description
+    story.image = og.image
+  end
 end
