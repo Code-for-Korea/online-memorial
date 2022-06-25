@@ -1,0 +1,45 @@
+ko:
+  date:
+    formats:
+      default: '%Y.%m.%d'
+  time:
+    formats:
+      default: "%Y.%m.%d %H:%M"
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      invalid: "을(를) 다시 확인해주세요."
+      blank: "을(를) 입력해 주세요."
+      not_saved: "이 저장되지 않았습니다."
+      taken: "은(는) 이미 사용 중입니다."
+      no_more_anonymous: '아! 이제부터는 로그인을 하셔야 합니다'
+      need_yyyy_mm_dd: ' 날짜는 yyyy-mm-dd로 넣어주세요. 예) 2017-02-10'
+      need_nickname_format: ' 영문이나 숫자 혹은 _,-만 기입할 수 있습니다. 반드시 기입해야 합니다.'
+  messages:
+    saved: '저장되었습니다'
+    commented: '댓글을 게시했습니다!'
+  activerecord:
+    models:
+      story: 이야기
+      post: 추모
+      stat: 통계
+      disaster: 재해
+    attributes:
+      story:
+        image: 이미지
+        title: 제목
+        body: 내용
+      post:
+        body: 내용
+        name: 이름
+      stat:
+        year: 연도
+        death: 사망자 수
+        injury: 부상자 수
+      disaster:
+        happened_on: 일자
+        death: 사망자 수
+        injury: 부상자 수
+        area: 지역
+        category: 유형
+    errors:

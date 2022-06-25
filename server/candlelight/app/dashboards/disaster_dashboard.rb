@@ -29,6 +29,8 @@ class DisasterDashboard < Administrate::BaseDashboard
     happened_on
     death
     injury
+    category
+    area
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

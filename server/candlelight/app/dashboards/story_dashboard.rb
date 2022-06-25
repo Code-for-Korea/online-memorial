@@ -25,6 +25,7 @@ class StoryDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     title
+    url
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
