@@ -40,15 +40,15 @@ export default class DataService {
     }
 
     static async getDataTable(page: number,): Promise<DataTableList> {
-        // const response = await DataAxios.get(`/data-table?&page=${page}`);
-        // return response.data ?? null;
-        return Array.from(Array(35), () => ({
-            date: `${new Date(Date.now()).toLocaleString('ko-KR', dateFormatOption).slice(0, -1)}/${WEEKDAY[new Date(Date.now()).getDay()]}`,
-            deathCount: 11,
-            injuredCount: 12,
-            district: "김포시",
-            accidentType: "충돌",
-            articleUrl: "https://google.com",
-        }));
+        const response = await DataAxios.get(`/disasters?&page=${page}per_page=${10}`);
+        return response.data ?? null;
+        //        return Array.from(Array(35), () => ({
+        //            date: `${new Date(Date.now()).toLocaleString('ko-KR', dateFormatOption).slice(0, -1)}/${WEEKDAY[new Date(Date.now()).getDay()]}`,
+        //            deathCount: 11,
+        //            injuredCount: 12,
+        //            district: "김포시",
+        //            accidentType: "충돌",
+        //            articleUrl: "https://google.com",
+        //        }));
     }
 }

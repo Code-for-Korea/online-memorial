@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import FlexColumn from "../../common/FlexColumn";
 import PostPaper from "../PostPaper";
 import PostText from "../PostText";
@@ -7,30 +7,20 @@ import PostService from "../../../services/post.service";
 
 export type PostData = {
     id: number;
-    content: string;
+    body: string;
+    name: string;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export type PostDataList = PostData[];
 
 export type PostListProps = {
-    pageNum: number;
+    postList: PostDataList;
 }
 
-const PostList:React.FC<PostListProps> = ({ pageNum }) => {
+const PostList: React.FC<PostListProps> = ({ postList }) => {
 
-    const [postList, setPostList]= useState<PostDataList>([]);
-
-    const initializePostList = useCallback(async () => {
-        const currentDate = new Date(Date.now());
-        const data = await PostService.getPost(currentDate.getFullYear(), pageNum, 10);
-        if (data !== null) {
-            setPostList(data);
-        }
-    }, [pageNum]);
-
-    useEffect(() => {
-        initializePostList();
-    }, []);
 
     return (
         <FlexColumn style={styles["post--list__wrapper"]}>
@@ -38,7 +28,7 @@ const PostList:React.FC<PostListProps> = ({ pageNum }) => {
                 postList.map((postData) => {
                     return (
                         <PostPaper key={`postData-${postData.id}`}>
-                            <PostText content={postData.content}/>
+                            <PostText content={postData.body} />
                         </PostPaper>
                     )
                 })
