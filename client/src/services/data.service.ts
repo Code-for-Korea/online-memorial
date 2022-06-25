@@ -39,7 +39,7 @@ export default class DataService {
         return response.data ?? null;
     }
 
-    static async getDataTable(page: number,): Promise<DataTableList> {
+    static async getDataTable(page: number,): Promise<{ [key: string]: any }> {
         const response = await DataAxios.get(`/disasters?&page=${page}per_page=${10}`);
         return response.data ?? null;
         //        return Array.from(Array(35), () => ({

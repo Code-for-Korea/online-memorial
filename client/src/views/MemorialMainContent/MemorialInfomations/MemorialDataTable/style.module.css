@@ -25,6 +25,11 @@
     opacity: 0.8;
 }
 
+.memorial-data-table--body-link-icon {
+    width: 1em;
+    height: 1em;
+}
+
 .memorial-data-table--body-highlight {
     border-radius: 0.1rem;
     background-color: rgba(255, 255, 255, 0.1);

@@ -25,7 +25,19 @@ const MemorialDataTable: React.FC<MemorialDataTableProps> = () => {
 
     const initializeDataTableList = useCallback(async () => {
         const data = await DataService.getDataTable(postPageNum);
-        setDataTableList(data);
+        if (data !== null) {
+            setDataTableList(data["disasters"].map((accident: { [key: string]: any }) => {
+                const date = new Date(Date.parse(accident["happened_on"].toString()));
+                return {
+                    date: `${date.toLocaleString('ko-KR', dateFormatOption).slice(0, -1)}/${WEEKDAY[date.getDay()]}`,
+                    deathCount: accident["death"],
+                    injuredCount: accident["injury"],
+                    district: accident["area"],
+                    accidentType: accident["category"],
+                    articleUrl: accident["url"],
+                };
+            }));
+        }
     }, [postPageNum]);
 
     useEffect(() => {
@@ -86,7 +98,11 @@ const MemorialDataTable: React.FC<MemorialDataTableProps> = () => {
                                                 target="_blank"
                                                 href={data[key] as string}
                                             >
-                                                GO
+                                                <img
+                                                    src={process.env.PUBLIC_URL + "/assets/icon/ic-link.svg"}
+                                                    alt="기사 보러가기"
+                                                    className={styles["memorial-data-table--body-link-icon"]}
+                                                />
                                             </a>
                                         ) : `${data[key as keyof DataTableItem]}`}
                                 />
