@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     # @posts = Post.all
-    @posts = Post.order('id desc').page(params[:page]).per(param[:per_page] || 5)
+    @posts = Post.order('id desc').page(params[:page]).per(params[:per_page] || 5)
     render json: { posts: @posts, meta: meta_data(@posts) }
   end
 
