@@ -24,10 +24,10 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: 'https://{defaultHost}',
+          url: '{defaultHost}',
           variables: {
             defaultHost: {
-              default: 'candle-c4k.herokuapp.com'
+              default: 'https://candle-c4k.herokuapp.com'
             }
           }
         }

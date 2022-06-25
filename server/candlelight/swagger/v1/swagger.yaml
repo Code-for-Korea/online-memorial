@@ -7,6 +7,15 @@ paths:
   "/disasters":
     get:
       summary: list disasters
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+      - name: per_page
+        in: query
+        schema:
+          type: integer
       responses:
         '200':
           description: successful
@@ -26,6 +35,15 @@ paths:
   "/posts":
     get:
       summary: list posts
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+      - name: per_page
+        in: query
+        schema:
+          type: integer
       responses:
         '200':
           description: successful
@@ -94,7 +112,7 @@ paths:
         '200':
           description: successful
 servers:
-- url: https://{defaultHost}
+- url: "{defaultHost}"
   variables:
     defaultHost:
-      default: candle-c4k.herokuapp.com
+      default: https://candle-c4k.herokuapp.com
