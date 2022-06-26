@@ -1,9 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import FlexColumn from "../../common/FlexColumn";
 import PostPaper from "../PostPaper";
 import PostText from "../PostText";
 import styles from "./style.module.css";
-import PostService from "../../../services/post.service";
 
 export type PostData = {
     id: number;
@@ -29,6 +28,7 @@ const PostList: React.FC<PostListProps> = ({ postList }) => {
                     return (
                         <PostPaper key={`postData-${postData.id}`}>
                             <PostText content={postData.body} />
+                            <PostText content={`-${postData.name[0]}${Array(postData.name.length - 1).fill("*").join("")}`} />
                         </PostPaper>
                     )
                 })
