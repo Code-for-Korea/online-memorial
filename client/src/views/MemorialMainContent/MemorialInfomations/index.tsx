@@ -9,17 +9,17 @@ import Container from "../../../components/common/Container";
 
 type MemorialInformationProps = {}
 
-const MemorialInformation:React.FC<MemorialInformationProps> = () => {
+const MemorialInformation: React.FC<MemorialInformationProps> = () => {
 
     const statisticsTitle = `사회적 추모 아카이브 ${new Date(Date.now()).getFullYear()}`;
     const articlesTitle = "당신이 읽어야 할 산업재해 이야기";
-    const dataTableTitle = "최근 1달간 산업재해 재해자";
+    const dataTableTitle = "산업재해 노동자 목록";
 
     return (
         <FlexColumn style={styles["memorial-information"]}>
             <Container style={styles["memorial-information--section__wrapper"]}>
                 <Divider title={statisticsTitle} />
-                <MemorialStatistics/>
+                <MemorialStatistics />
             </Container>
             <Container style={styles["memorial-information--section__wrapper"]}>
                 <Divider title={dataTableTitle} />

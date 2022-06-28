@@ -50,7 +50,7 @@ export default class DataService {
     }
 
     static async getDataTable(page: number,): Promise<{ [key: string]: any }> {
-        const response = await Axios.get(`/disasters?&page=${page}per_page=${10}`);
+        const response = await Axios.get(`/disasters?&page=${page}&per_page=${20}`);
         return response.data ?? null;
     }
 }
