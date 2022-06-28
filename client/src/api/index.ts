@@ -1,9 +1,5 @@
 import axios from "axios";
 
-export const PostAxios = axios.create({
-    baseURL: "/"
-})
-
-export const DataAxios = axios.create({
-    baseURL: "/"
+export const Axios = axios.create({
+    baseURL: "https://candle-c4k.herokuapp.com"
 })
