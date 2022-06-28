@@ -4,6 +4,7 @@ import AnimatedImage from "../AnimatedImage";
 import HazyLight from "../HazyLight";
 import styles from "./style.module.css";
 
+
 const MemorialTable: React.FC = () => {
 
     const staticValues = [
