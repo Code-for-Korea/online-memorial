@@ -1,0 +1,20 @@
+<svg width="25" height="120" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient x1="50%" y1="28.402%" x2="50%" y2="100%" id="a">
+            <stop stop-color="#FFF" stop-opacity="0" offset="0%"/>
+            <stop stop-color="#D8D8D8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="76.277%" id="b">
+            <stop stop-color="#FFF" stop-opacity="0" offset="0%"/>
+            <stop stop-color="#FFF" offset="100%"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(0 29)">
+            <path d="M12.5 0c6.58 0 11.971 1.593 12.463 3.615H25v83.166h-.036c.024.1.036.2.036.302C25 89.246 19.404 91 12.5 91S0 89.246 0 87.083c0-.102.012-.202.036-.301H0V3.615h.037C.529 1.592 5.92 0 12.5 0z" fill="#FFF"/>
+            <ellipse fill="url(#a)" cx="12.903" cy="4.315" rx="10.484" ry="1.961"/>
+        </g>
+        <path d="M3.5 23C4.77 23 7 20.58 7 14.229 7 9.995 5.833 5.252 3.5 0 1.167 5.252 0 9.995 0 14.229 0 20.58 2.23 23 3.5 23z" fill="url(#b)" transform="translate(9)"/>
+        <path d="M12.889 19.933c.859 0 1.555-.93 1.555-3.872 0-1.961-.518-3.737-1.555-5.328-1.037 1.59-1.556 3.367-1.556 5.328 0 2.943.697 3.872 1.556 3.872z" fill="#FFF"/>
+    </g>
+</svg>
