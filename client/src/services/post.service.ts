@@ -1,5 +1,4 @@
 import { PostAxios } from "../api";
-import { PostDataList } from "../components/post/PostList";
 
 export default class PostService {
     static async getPost(page: number, amount: number): Promise<{ [key: string]: any } | null> {

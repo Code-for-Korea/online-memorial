@@ -5,7 +5,7 @@ import {
     registerables,
 } from "chart.js";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { Chart, Bar } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import FlexRow from "../../../../../../components/common/FlexRow";
 import BasicCard from "../BasicCard";
 import styles from "./style.module.css";

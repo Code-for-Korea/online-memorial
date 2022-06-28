@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import DataTableRow from "../../../../components/dataTable/DataTableRow";
 import styles from "./style.module.css";
 import FlexColumn from "../../../../components/common/FlexColumn";

@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import Button from "../../common/Button";
 import FlexRow from "../../common/FlexRow";
 import PageNumber from "../PageNumber";
 import styles from "./style.module.css";
@@ -25,9 +24,19 @@ const Pagination: React.FC<PaginationProps> = ({ onPageChange, lastPage, initial
 
     return (
         <FlexRow style={styles["pagination--container__wrapper"]}>
-            <img src={process.env.PUBLIC_URL + "/assets/icon/ic-arrow-left.svg"} onClick={onMoveButtonClick(-1)} className={styles["pagination--button"]} />
+            <img
+                src={process.env.PUBLIC_URL + "/assets/icon/ic-arrow-left.svg"}
+                onClick={onMoveButtonClick(-1)}
+                className={styles["pagination--button"]}
+                alt="추모글 한 페이지 뒤로가기"
+            />
             <PageNumber centerNumber={currentPage} oddNumberForDisplayCount={3} lastNumber={lastPage} />
-            <img src={process.env.PUBLIC_URL + "/assets/icon/ic-arrow-right.svg"} onClick={onMoveButtonClick(1)} className={styles["pagination--button"]} />
+            <img
+                src={process.env.PUBLIC_URL + "/assets/icon/ic-arrow-right.svg"}
+                onClick={onMoveButtonClick(1)}
+                className={styles["pagination--button"]}
+                alt="추모글 한 페이지 뒤로가기"
+            />
         </FlexRow>
     )
 };
