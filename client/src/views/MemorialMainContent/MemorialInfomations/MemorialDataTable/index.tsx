@@ -21,11 +21,13 @@ export type DataTableList = DataTableItem[];
 
 const MemorialDataTable: React.FC<MemorialDataTableProps> = () => {
     const [postPageNum, setPostPageNum] = useState<number>(1);
+    const [totalPageNum, setTotalPageNum] = useState<number>(1);
     const [dataTableList, setDataTableList] = useState<DataTableList>([]);
 
-    const initializeDataTableList = useCallback(async () => {
-        const data = await DataService.getDataTable(postPageNum);
+    const getDataTableList = useCallback(async (pageNum: number | null) => {
+        const data = await DataService.getDataTable(pageNum ?? postPageNum);
         if (data !== null) {
+            setTotalPageNum(data["meta"]["total_pages"]);
             setDataTableList(data["disasters"].map((accident: { [key: string]: any }) => {
                 const date = new Date(Date.parse(accident["happened_on"].toString()));
                 return {
@@ -41,8 +43,8 @@ const MemorialDataTable: React.FC<MemorialDataTableProps> = () => {
     }, [postPageNum]);
 
     useEffect(() => {
-        initializeDataTableList();
-    }, []);
+        getDataTableList(postPageNum);
+    }, [postPageNum]);
 
     const headerList = [
         "사고날짜/요일",
@@ -53,21 +55,9 @@ const MemorialDataTable: React.FC<MemorialDataTableProps> = () => {
         "세부내용",
     ];
 
-    const dataPerPage = 10;
     const updatePostPageNum = useCallback((newPageNum: number) => {
         setPostPageNum(newPageNum);
     }, []);
-
-    const getLastPostPageNum = useCallback(() => {
-        return Math.floor(dataTableList.length / dataPerPage) + 1;
-    }, [dataTableList, dataPerPage]);
-
-    const currentDatas = useMemo(() => {
-        return dataTableList.slice(
-            (postPageNum - 1) * dataPerPage,
-            postPageNum * dataPerPage
-        );
-    }, [postPageNum, dataPerPage, dataTableList]);
 
     return (
         <FlexColumn>
@@ -85,7 +75,7 @@ const MemorialDataTable: React.FC<MemorialDataTableProps> = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {currentDatas.map((data, idx) => (
+                    {dataTableList.map((data, idx) => (
                         <tr key={`memorial-data-table-r${idx}`}>
                             {Object.keys(data).map((key) => (
                                 <DataTableRow
@@ -114,7 +104,7 @@ const MemorialDataTable: React.FC<MemorialDataTableProps> = () => {
             <Container style={styles["memorial-data-table--pagination__wrapper"]}>
                 <Pagination
                     onPageChange={updatePostPageNum}
-                    lastPage={getLastPostPageNum()}
+                    lastPage={totalPageNum}
                     initialPageNum={postPageNum}
                 />
             </Container>

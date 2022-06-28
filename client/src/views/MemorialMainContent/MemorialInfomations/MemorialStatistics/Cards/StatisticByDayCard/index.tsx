@@ -29,7 +29,7 @@ const StatisticByDayCard: React.FC<StatisticByDayCardProps> = () => {
         }
     }, []);
 
-    const title = "요일별 비율 (발생건수)";
+    const title = "요일별 발생건수";
     const subtitle = "전체 산업재해 사망사고";
     const data = useMemo(() => {
         const _data: ChartData<"bar"> = {

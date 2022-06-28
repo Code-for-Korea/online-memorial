@@ -16,8 +16,6 @@ const Pagination: React.FC<PaginationProps> = ({ onPageChange, lastPage, initial
 
     const onMoveButtonClick = useCallback((numberToAdd: number) => (evt: React.MouseEvent<HTMLImageElement>) => {
         const newPageNum = currentPage + numberToAdd;
-        console.log(newPageNum);
-
         if (newPageNum < 1 || newPageNum > lastPage) {
             return;
         }

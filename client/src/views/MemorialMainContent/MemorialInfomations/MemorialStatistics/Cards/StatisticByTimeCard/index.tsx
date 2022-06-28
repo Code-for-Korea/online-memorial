@@ -32,7 +32,7 @@ const StatisticByTimeCard: React.FC<StatisticByTimeCardProps> = () => {
         }
     }, []);
 
-    const title = "시간대별 비율 (발생건수)";
+    const title = "시간대별 발생건수";
     const subtitle = "전체 산업재해 사망사고";
     const timeline = Array(24)
         .fill(0)
