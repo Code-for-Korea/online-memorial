@@ -1,11 +1,5 @@
 import { DataAxios } from "../api";
 import {
-    DataTableList,
-    dateFormatOption,
-    WEEKDAY
-} from "../views/MemorialMainContent/MemorialInfomations/MemorialDataTable";
-import { News } from "../views/MemorialMainContent/MemorialInfomations/MemorialArticles";
-import {
     StatisticDataByDay
 } from "../views/MemorialMainContent/MemorialInfomations/MemorialStatistics/Cards/StatisticByDayCard";
 
@@ -14,24 +8,40 @@ import {
  * http://13.125.214.78:8080/swagger-ui/index.html
  */
 
-export type VictimStatus = "killed" | "injured"
+export type VictimStatus = "death" | "injury"
 export type PercentageStatistic = "day" | "time"
 
 export default class DataService {
-    static async getTotalCount(victimStatus: VictimStatus, year: number) {
-        const response = await DataAxios.get(`/incidents/count?year=${year}`);
+    static async getTotalCount(victimStatus: VictimStatus, year: number): Promise<number | null> {
+        const response = await DataAxios.get(`/stats/year/${year}`);
         if (response.status === 200) {
             return response.data[victimStatus];
         }
-        // return 30;
+        return null;
     }
 
-    static async getStatistic(year: number): Promise<StatisticDataByDay | null> {
-        // const response = await DataAxios.get(`/incidents/aggregate?year=${year}`);
-        // console.log(response);
-        // return response.data ?? null;
-        const days = [1, 2, 3, 4, 5, 6, 7];
-        return days;
+    static async getStatisticByTime(year: number): Promise<StatisticDataByDay | null> {
+        const response = await DataAxios.get(`/stats/year/${year}`);
+        if (response.status === 200) {
+            return Object.entries(response.data)
+                .filter(([key, _]) => key.includes("hour"))
+                .map(([key, value]) => [parseInt(key.replace('hour_', '')), value])
+                .sort((a, b) => (a[0] as number) - (b[0] as number))
+                .map(([_, value]) => value as number);
+        }
+        return null;
+    }
+
+    static async getStatisticByDay(year: number): Promise<StatisticDataByDay | null> {
+        const response = await DataAxios.get(`/stats/year/${year}`);
+        if (response.status === 200) {
+            return Object.entries(response.data)
+                .filter(([key, _]) => key.includes("week"))
+                .map(([key, value]) => [parseInt(key.replace('week_', '')), value])
+                .sort((a, b) => (a[0] as number) - (b[0] as number))
+                .map(([_, value]) => value as number);
+        }
+        return null;
     }
 
     static async getNews(): Promise<{ [key: string]: any }> {

@@ -8,7 +8,7 @@ import DataService from "../../../../../../services/data.service";
 
 type TotalStatisticCardProps = {}
 
-const TotalStatisticCard:React.FC<TotalStatisticCardProps> = () => {
+const TotalStatisticCard: React.FC<TotalStatisticCardProps> = () => {
 
 
     const [dead, setDead] = useState(0);
@@ -18,13 +18,17 @@ const TotalStatisticCard:React.FC<TotalStatisticCardProps> = () => {
     const subtitle = "전체 산업재해 사망사고"
 
     const updateDeadCount = useCallback(async () => {
-        const data = await DataService.getTotalCount("killed", new Date(Date.now()).getFullYear());
-        setDead(data);
+        const data = await DataService.getTotalCount("death", new Date(Date.now()).getFullYear());
+        if (data !== null) {
+            setDead(data);
+        }
     }, [])
 
     const updateInjuredCount = useCallback(async () => {
-        const data = await DataService.getTotalCount("injured", new Date(Date.now()).getFullYear());
-        setInjured(data);
+        const data = await DataService.getTotalCount("injury", new Date(Date.now()).getFullYear());
+        if (data !== null) {
+            setInjured(data);
+        }
     }, [])
 
     useEffect(() => {
@@ -36,12 +40,12 @@ const TotalStatisticCard:React.FC<TotalStatisticCardProps> = () => {
         <BasicCard title={title} subtitle={subtitle}>
             <FlexColumn style={styles["total-statistic--content"]}>
                 <FlexRow style={styles["total-statistic--line"]}>
-                    <TextChunk content="사망 : 모든 사고유형"/>
-                    <TextChunk content={`${dead}명`}/>
+                    <TextChunk content="사망 : 모든 사고유형" />
+                    <TextChunk content={`${dead}명`} />
                 </FlexRow>
                 <FlexRow style={styles["total-statistic--line"]}>
-                    <TextChunk content="부상 : 모든 사고유형"/>
-                    <TextChunk content={`${injured}명`}/>
+                    <TextChunk content="부상 : 모든 사고유형" />
+                    <TextChunk content={`${injured}명`} />
                 </FlexRow>
             </FlexColumn>
         </BasicCard>
