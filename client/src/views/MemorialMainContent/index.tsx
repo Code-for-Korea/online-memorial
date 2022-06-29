@@ -7,10 +7,13 @@ import MemorialInformation from "./MemorialInfomations";
 import MemorialPosts from "./MemorialPosts";
 import styles from "./style.module.css";
 
+export type MemorialMainContentProps = {
+    postSubmitted: boolean;
+}
 
-const MemorialMainContent:React.FC = () => {
+const MemorialMainContent: React.FC<MemorialMainContentProps> = ({ postSubmitted }) => {
 
-    
+
     const [tabList, setTabList] = useState<TabData[]>([
         {
             id: 1,
@@ -24,11 +27,11 @@ const MemorialMainContent:React.FC = () => {
         },
     ]);
 
-    const findTabByName = useCallback((name:TabData["name"]) => {
+    const findTabByName = useCallback((name: TabData["name"]) => {
         return tabList.find((tabData) => tabData.name === name);
     }, [tabList]);
 
-    const onClickTab = useCallback((id:TabData["id"]) => (_: React.MouseEvent<HTMLDivElement>) => {
+    const onClickTab = useCallback((id: TabData["id"]) => (_: React.MouseEvent<HTMLDivElement>) => {
         setTabList(prev => prev.map((tabData) => {
             if (tabData.id === id) {
                 return {
@@ -45,12 +48,12 @@ const MemorialMainContent:React.FC = () => {
 
     return (
         <FlexColumn style={styles["memorial-posts--wrapper"]}>
-            <TabHeader tabList={tabList} onClickTab={onClickTab}/>
+            <TabHeader tabList={tabList} onClickTab={onClickTab} />
             <TabWrapper>
-                <TabBody visible={findTabByName("추모공간")?.visible??false}>
-                    <MemorialPosts />
+                <TabBody visible={findTabByName("추모공간")?.visible ?? false}>
+                    <MemorialPosts postSubmitted={postSubmitted} />
                 </TabBody>
-                <TabBody visible={findTabByName("추모관")?.visible??false}>
+                <TabBody visible={findTabByName("추모관")?.visible ?? false}>
                     <MemorialInformation />
                 </TabBody>
             </TabWrapper>

@@ -6,9 +6,11 @@ import PostList, { PostDataList } from "../../../components/post/PostList";
 import PostService from "../../../services/post.service";
 import styles from "./style.module.css";
 
-type MemorialPostsProps = {};
+type MemorialPostsProps = {
+    postSubmitted: boolean;
+};
 
-const MemorialPosts: React.FC<MemorialPostsProps> = () => {
+const MemorialPosts: React.FC<MemorialPostsProps> = ({ postSubmitted }) => {
     const [postPageNum, setPostPageNum] = useState<number>(1);
     const [totalPageNum, setTotalPageNum] = useState<number>(1);
     const [totalPostNum, setTotalPostNum] = useState<number>(0);
@@ -35,7 +37,7 @@ const MemorialPosts: React.FC<MemorialPostsProps> = () => {
 
     useEffect(() => {
         initializePostList();
-    }, [postPageNum]);
+    }, [postPageNum, postSubmitted]);
 
     return (
         <>

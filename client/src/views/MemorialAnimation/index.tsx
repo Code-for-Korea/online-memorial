@@ -10,10 +10,11 @@ import styles from "./style.module.css";
 
 export type MemorialAnimationProps = {
     count: number;
+    onPostSubmit: () => void;
     year?: number;
 }
 
-const MemorialAnimation: React.FC<MemorialAnimationProps> = ({ count, year = new Date(Date.now()).getFullYear() }) => {
+const MemorialAnimation: React.FC<MemorialAnimationProps> = ({ count, onPostSubmit, year = new Date(Date.now()).getFullYear() }) => {
 
     const [showAddPostModal, setShowAddPostModal] = useState(false);
     const memorialTextContent = `${year}년, 산업 재해로 인해\n사망한 분들의 숫자입니다`;
@@ -33,6 +34,7 @@ const MemorialAnimation: React.FC<MemorialAnimationProps> = ({ count, year = new
             body: text,
         });
         localStorage.setItem(LOCAL_STORAGE_KEY, result["id"].toString());
+        onPostSubmit();
     }, [])
 
     return (

@@ -6,6 +6,7 @@ import MemorialMainContent from "./views/MemorialMainContent";
 
 function App() {
     const [deathCount, setDeathCount] = useState<number>(0);
+    const [postSubmitted, setPostSubmitted] = useState<boolean>(false);
 
     const initializeDeathCount = async () => {
         const data = await DataService.getTotalCount("death", new Date(Date.now()).getFullYear());
@@ -14,14 +15,18 @@ function App() {
         }
     }
 
+    const onPostSubmit = () => {
+        setPostSubmitted((prev) => !prev);
+    }
+
     useEffect(() => {
         initializeDeathCount();
     }, []);
 
     return (
         <Layout>
-            <MemorialAnimation count={deathCount} />
-            <MemorialMainContent />
+            <MemorialAnimation count={deathCount} onPostSubmit={onPostSubmit} />
+            <MemorialMainContent postSubmitted={postSubmitted} />
         </Layout>
     );
 }
