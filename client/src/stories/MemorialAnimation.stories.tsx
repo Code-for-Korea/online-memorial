@@ -11,6 +11,5 @@ const Template: ComponentStory<typeof MemorialAnimation> = (args: MemorialAnimat
 
 export const MemorialAnimationSample = Template.bind({})
 MemorialAnimationSample.args = {
-    count: 1234,
     year: 2021
 }
