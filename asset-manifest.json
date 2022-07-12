@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/online-memorial/static/css/main.e350c3f5.css",
-    "main.js": "/online-memorial/static/js/main.b8324ca8.js",
+    "main.js": "/online-memorial/static/js/main.3e26a793.js",
     "index.html": "/online-memorial/index.html"
   },
   "entrypoints": [
     "static/css/main.e350c3f5.css",
-    "static/js/main.b8324ca8.js"
+    "static/js/main.3e26a793.js"
   ]
 }
