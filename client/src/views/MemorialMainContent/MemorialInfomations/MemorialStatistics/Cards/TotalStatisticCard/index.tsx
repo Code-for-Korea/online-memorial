@@ -18,14 +18,18 @@ const TotalStatisticCard: React.FC<TotalStatisticCardProps> = () => {
     const subtitle = "전체 산업재해 사망사고"
 
     const updateDeadCount = useCallback(async () => {
-        const data = await DataService.getTotalCount("death", new Date(Date.now()).getFullYear());
+        // NOTE: 현행화하기 전까지 2022년으로 설정합니다
+        // const data = await DataService.getTotalCount("death", new Date(Date.now()).getFullYear());
+        const data = await DataService.getTotalCount("death", 2022);
         if (data !== null) {
             setDead(data);
         }
     }, [])
 
     const updateInjuredCount = useCallback(async () => {
-        const data = await DataService.getTotalCount("injury", new Date(Date.now()).getFullYear());
+        // NOTE: 현행화하기 전까지 2022년으로 설정합니다
+        // const data = await DataService.getTotalCount("injury", new Date(Date.now()).getFullYear());
+        const data = await DataService.getTotalCount("injury", 2022);
         if (data !== null) {
             setInjured(data);
         }

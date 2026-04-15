@@ -22,7 +22,9 @@ const StatisticByDayCard: React.FC<StatisticByDayCardProps> = () => {
 
     const initializeStatisticByDay = useCallback(async () => {
         const data = await DataService.getStatisticByDay(
-            new Date(Date.now()).getFullYear()
+            // NOTE: 현행화하기 전까지 2022년으로 설정합니다
+            // new Date(Date.now()).getFullYear()
+            2022
         );
         if (data !== null) {
             setStatisticByDay(data);

@@ -11,7 +11,9 @@ const Template: ComponentStory<typeof Divider> = (args: DividerProps) => <Divide
 
 export const TitleOne = Template.bind({})
 TitleOne.args = {
-    title: `사회적 추모 아카이브 ${new Date(Date.now()).getFullYear()}`
+    // NOTE: 데이터 현행화하기 전까지 2022년으로 설정합니다
+    // title: `사회적 추모 아카이브 ${new Date(Date.now()).getFullYear()}`
+    title: `사회적 추모 아카이브 ${2022}`
 }
 
 export const TitleTwo = Template.bind({})
