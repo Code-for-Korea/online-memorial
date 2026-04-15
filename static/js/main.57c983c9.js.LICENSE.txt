@@ -6,13 +6,11 @@
  */
 
 /*!
- * Chart.js v3.8.0
+ * Chart.js v3.9.1
  * https://www.chartjs.org
  * (c) 2022 Chart.js Contributors
  * Released under the MIT License
  */
-
-/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
 /**
  * @license React
