@@ -14,15 +14,15 @@ export type PercentageStatistic = "day" | "time"
 export default class DataService {
     static async getTotalCount(victimStatus: VictimStatus, year: number): Promise<number | null> {
         const response = await Axios.get(`/stats/year/${year}`);
-        if (response.status === 200) {
-            return response.data[victimStatus];
+        if (response.status === 200 && response.data) {
+            return response.data[victimStatus] ?? null;
         }
         return null;
     }
 
     static async getStatisticByTime(year: number): Promise<StatisticDataByDay | null> {
         const response = await Axios.get(`/stats/year/${year}`);
-        if (response.status === 200) {
+        if (response.status === 200 && response.data) {
             return Object.entries(response.data)
                 .filter(([key, _]) => key.includes("hour"))
                 .map(([key, value]) => [parseInt(key.replace('hour_', '')), value])
@@ -34,7 +34,7 @@ export default class DataService {
 
     static async getStatisticByDay(year: number): Promise<StatisticDataByDay | null> {
         const response = await Axios.get(`/stats/year/${year}`);
-        if (response.status === 200) {
+        if (response.status === 200 && response.data) {
             return Object.entries(response.data)
                 .filter(([key, _]) => key.includes("week"))
                 .map(([key, value]) => [parseInt(key.replace('week_', '')), value])
