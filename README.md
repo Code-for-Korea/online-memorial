@@ -3,15 +3,16 @@
 
 > 잊혀진 산업재해 희생자들을 추모하는 공간
 
-[online-memorial.codefor.kr](https://online-memorial.codefor.kr) 서비스의 프론트엔드 저장소입니다.
+[사회적 추모 Online Memorial](https://code-for-korea.github.io/online-memorial/) 프론트엔드 저장소입니다.
 
 ## 프로젝트 개요
 
 본 프로젝트는 산업재해 희생자들을 기억하고 추모하기 위한 웹 서비스의 클라이언트 애플리케이션입니다. 백엔드 API와 연동하여 산업재해 통계, 추모 게시글, 관련 소식 등을 제공합니다.
 
 - **백엔드 저장소**: [wagurano/candlelight](https://github.com/wagurano/candlelight) (Rails 기반 API 서버)
+> 저장소 통합 작업 진행중입니다 
 - **배포 주소**: [https://code-for-korea.github.io/online-memorial](https://code-for-korea.github.io/online-memorial)
-- 서버 이전 작업 진행중입니다
+> 서버 이전 작업 진행중입니다
 
 ## 기술 스택
 
