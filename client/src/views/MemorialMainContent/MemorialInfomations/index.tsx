@@ -10,8 +10,9 @@ import Container from "../../../components/common/Container";
 type MemorialInformationProps = {}
 
 const MemorialInformation: React.FC<MemorialInformationProps> = () => {
-
-    const statisticsTitle = `사회적 추모 아카이브 ${new Date(Date.now()).getFullYear()}`;
+    // NOTE: 현행화하기 전까지 2022년으로 설정합니다
+    // const statisticsTitle = `사회적 추모 아카이브 ${new Date(Date.now()).getFullYear()}`;
+    const statisticsTitle = `사회적 추모 아카이브 ${2022}`;
     const articlesTitle = "당신이 읽어야 할 산업재해 이야기";
     const dataTableTitle = "산업재해 노동자 목록";
 

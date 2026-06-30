@@ -24,7 +24,9 @@ const StatisticByTimeCard: React.FC<StatisticByTimeCardProps> = () => {
 
     const initializeStatisticByTime = useCallback(async () => {
         const data = await DataService.getStatisticByTime(
-            new Date(Date.now()).getFullYear()
+            // NOTE: 현행화하기 전까지 2022년으로 설정합니다
+            // new Date(Date.now()).getFullYear()
+            2022
         );
         if (data !== null) {
             const startFromSixteen = [...data.slice(data.length - 6, data.length), ...data.slice(0, data.length - 6)];

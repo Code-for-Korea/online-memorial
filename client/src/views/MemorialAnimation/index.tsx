@@ -14,7 +14,9 @@ export type MemorialAnimationProps = {
     year?: number;
 }
 
-const MemorialAnimation: React.FC<MemorialAnimationProps> = ({ onPostSubmit, year = new Date(Date.now()).getFullYear() }) => {
+// NOTE: 현행화하기 전까지 2022년으로 설정합니다
+// const MemorialAnimation: React.FC<MemorialAnimationProps> = ({ onPostSubmit, year = new Date(Date.now()).getFullYear() }) => {
+const MemorialAnimation: React.FC<MemorialAnimationProps> = ({ onPostSubmit, year = 2022 }) => {
 
     const [showAddPostModal, setShowAddPostModal] = useState(false);
     const [deathCount, setDeathCount] = useState<number>(getCachedDeathCount());
@@ -23,7 +25,9 @@ const MemorialAnimation: React.FC<MemorialAnimationProps> = ({ onPostSubmit, yea
 
 
     const initializeDeathCount = async () => {
-        const data = await DataService.getTotalCount("death", new Date(Date.now()).getFullYear());
+        // NOTE: 현행화하기 전까지 2022년으로 설정합니다
+        // const data = await DataService.getTotalCount("death", new Date(Date.now()).getFullYear());
+        const data = await DataService.getTotalCount("death", 2022);
         if (data !== null) {
             setDeathCount(data);
             setCachedDeathCount(data);
